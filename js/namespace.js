@@ -1,9 +1,11 @@
 var ns = ns || {};
 
-ns.ImageResult = function ImageResult(size){
-	this.data = new Uint8ClampedArray(size*size*4);   
-    // this.data = this.setPixels(4*size*size, 255);
-}
+ns.ImageDefaultSize = 256;
+
+// ns.ImageResult = function ImageResult(){
+// 	this.data = new ImageData
+//     // this.data = this.setPixels(4*size*size, 255);
+// }
 
 // ns.ImageMerger = ImageMerger(new ns.ImageResult(3), new ns.ImageResult(3));
 

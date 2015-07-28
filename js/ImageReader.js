@@ -1,20 +1,22 @@
-var container = document.getElementById('divId');
-var a = new ImageReader(container);
-a.onImageReceived = function(data) {
-	console.log(data);
-};
-a.init();
+var ImageDefaultSize = ns.ImageDefaultSize;
 
 function ImageReader(container) {
+    var that = this;
+
 	this.onImageReceived = function() {};
 
 	this.init = function() {
 
 		var inputElement = document.createElement("input");
 		inputElement.setAttribute("type", "file");
-        document.getElementById("selectImage").appendChild(inputElement);
+        container.appendChild(inputElement);
 
-		document.getElementById("loadBtn").addEventListener("click", handleFiles);
+        var btnElement = document.createElement("button");
+        btnElement.type = "button";
+        btnElement.innerText = "Load";
+        btnElement.addEventListener("click", handleFiles);
+        container.appendChild(btnElement);
+
         var reader, canvas, ctx;
 
         function handleFiles(ev) {
@@ -22,27 +24,33 @@ function ImageReader(container) {
             var file = inputElement.files[0];
 
             if (file) {
-            reader = new FileReader();
-            canvas = document.getElementById('imageCanvas');
-            ctx = canvas.getContext('2d');
+                reader = new FileReader();
 
-            reader.onload = function(event) {
+                canvas = document.createElement("canvas");
+                canvas.width = ImageDefaultSize;
+                canvas.height = ImageDefaultSize;
 
-                var img = new Image();
-                img.onload = function() {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    ctx.drawImage(img,0,0);
+                ctx = canvas.getContext("2d");
 
-                    var imageData = ctx.getImageData(0, 0, img.width, img.height);
-                    this.onImageReceived(imageData.data);
+                reader.onload = function(event) {
+
+                    var img = new Image();
+                    img.onload = function() {
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img,0,0);
+
+                        var imageData = ctx.getImageData(0, 0, img.width, img.height);
+                        that.onImageReceived(imageData);
+                    };
+
+                    img.src = event.target.result;
                 };
 
-                img.src = event.target.result;
-            };
-
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
             }
         }
     };
 }
+
+ns.ImageReader = ImageReader;
