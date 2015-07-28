@@ -32,22 +32,12 @@ function ImageMerger(ImageData1, ImageData2) {
       }
 
       var ImageFinal = finalImage;
-      
-
-
-      /*console.log(aux);
-      console.log("Result:");
-      console.log(finalImage);
-      
-      
-      console.log("Done.");
-      */
+   
       return ImageFinal;
    
     };
   
 }
 ns.ImageMerger = ImageMerger;
-
 
 }()); 

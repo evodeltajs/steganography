@@ -3,45 +3,39 @@
 "use strict";
 
 
-function ImageUnmerger (sizes) {
-  	this.sizes = sizes;
-    this.inputImage= new ImageResult(sizes);
-  	 
-}
+function ImageUnmerger (ImageData) {
+    this.inputImage= ImageData;
+    this.sizes = ns.ImageDefaultSize* ns.ImageDefaultSize * 4;
 
-ImageUnmerger.prototype.unmerge = function(){
+	this.unmerge = function(){
 
-	console.log(this.inputImage);
+	// console.log(this.inputImage);
+	 
+	var firstAux = new Uint8ClampedArray(this.sizes);
+	var secondAux = new Uint8ClampedArray(this.sizes);
+ 
+    var temp = new Uint8ClampedArray(this.sizes);
 
-	var size = this.inputImage.data.length;
-	var firstAux = new Uint8ClampedArray(size);
-	var secondAux = new Uint8ClampedArray(size);
-
-	var firstOutput = new ImageResult(size);
-	var secondOutput = new ImageResult(size);
-
-    var temp = new Uint8ClampedArray(size);
-
-	for (var i=0; i<size; i++) {
+	for (var i=0; i<this.sizes; i++) {
 
 		firstAux[i] = 0;
 		secondAux[i] = 0;	
 		temp[i] =0;
 	}
  	
-	for (var i=0; i<size; i++) {
+	for (var i=0; i<this.sizes; i++) {
 
-		temp[i] = this.inputImage.data[i];
-		temp[i] = (temp[i] >> 2 << 2);
+		temp[i] = this.inputImage[i];
+		temp[i] = temp[i] >> 2 << 2;
 		firstAux[i] = temp[i];
-		secondAux[i] = temp[i] ^ this.inputImage.data[i];
+		secondAux[i] = temp[i] ^ this.inputImage[i];
 		secondAux[i] = secondAux[i] * 64;
 	}
 
-    firstOutput.data = firstAux;
-	secondOutput.data = secondAux;
+   	return [firstAux, secondAux];
+	};  
 
-	return [firstOutput, secondOutput];
-}  
-
-})(); 
+}
+ns.ImageUnmerger = ImageUnmerger;
+	
+}()); 

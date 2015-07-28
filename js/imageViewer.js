@@ -24,8 +24,7 @@
 		};
  		
  		this.setFinal = function(myData){
-
- 			var canvas = document.createElement('canvas');
+ 			var canvas = document.createElement("canvas");
  			ctx = canvas.getContext("2d");
 
 			canvas.width = ImageDefaultSize;
@@ -33,8 +32,7 @@
 
 			container.appendChild(canvas);
  			var imageData = canvas.getContext("2d").createImageData(ImageDefaultSize, ImageDefaultSize);
- 			imageData.data.set(myData);	
-
+ 			imageData.data.set(myData);
  			ctx.putImageData(imageData,0,0);
  			// console.log(imageData);
  		}
