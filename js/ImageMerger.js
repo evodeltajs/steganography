@@ -2,10 +2,10 @@
 
 "use strict";
 
-function ImageMerger(ImageResult1, ImageResult2) {
-  	this.sizes = ImageResult1.data.length;
-    this.ImageResult1 = ImageResult1;
-  	this.ImageResult2 = ImageResult2;
+function ImageMerger(ImageData1, ImageData2) {
+  	this.sizes =  ns.ImageDefaultSize;
+    this.ImageResult1 = ImageData1;
+  	this.ImageResult2 = ImageData2;
 
     this.merge = function(){
  
@@ -27,12 +27,12 @@ function ImageMerger(ImageResult1, ImageResult2) {
       var sizeImageResult1 = this.ImageResult1.data.length;
       for(var i=0; i<sizeImageResult1; i++){
 
-        this.ImageResult1.data[i] = this.ImageResult1.data[i] >> 2  <<2;
+        this.ImageResult1.data[i] = this.ImageResult1.data[i] >> 2  << 2;
         finalImage[i] = this.ImageResult1.data[i] + aux[i];
       }
 
-      var ImageFinal = new ns.ImageResult(this.sizes);
-      ImageFinal.data = finalImage;
+      var ImageFinal = finalImage;
+      
 
 
       /*console.log(aux);
@@ -47,7 +47,7 @@ function ImageMerger(ImageResult1, ImageResult2) {
     };
   
 }
-ns.imageMerger = ImageMerger;
+ns.ImageMerger = ImageMerger;
 
 
 }()); 

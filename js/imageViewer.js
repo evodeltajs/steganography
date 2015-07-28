@@ -7,7 +7,7 @@
 	function ImageViewer(container) {
 		var canvasImageViewer;
 		var ctx;
-
+		var imageDataNew;
 		this.init = function() {
 			canvasImageViewer = document.createElement("canvas");
 			ctx = canvasImageViewer.getContext("2d");
@@ -16,11 +16,28 @@
 			canvasImageViewer.height = ImageDefaultSize;
 
 			container.appendChild(canvasImageViewer);
+
 		};
 
 		this.setImage = function(imageData) {			
 			ctx.putImageData(imageData, 0, 0);			
 		};
+ 		
+ 		this.setFinal = function(myData){
+
+ 			var canvas = document.createElement('canvas');
+ 			ctx = canvas.getContext("2d");
+
+			canvas.width = ImageDefaultSize;
+			canvas.height = ImageDefaultSize;
+
+			container.appendChild(canvas);
+ 			var imageData = canvas.getContext("2d").createImageData(ImageDefaultSize, ImageDefaultSize);
+ 			imageData.data.set(myData);	
+
+ 			ctx.putImageData(imageData,0,0);
+ 			// console.log(imageData);
+ 		}
 	}
 
 	ns.ImageViewer = ImageViewer;

@@ -18,7 +18,7 @@ function ImageReader(container) {
         container.appendChild(btnElement);
 
         var reader, canvas, ctx;
-
+ 
         function handleFiles(ev) {
 
             var file = inputElement.files[0];
