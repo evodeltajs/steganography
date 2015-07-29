@@ -12,7 +12,6 @@
 		this.init = function() {
 			canvasImageViewer = document.createElement("canvas");
 			ctx = canvasImageViewer.getContext("2d");
-
 			canvasImageViewer.width = ImageDefaultSize;
 			canvasImageViewer.height = ImageDefaultSize;
 
@@ -24,7 +23,7 @@
 			ctx.putImageData(imageData, 0, 0);			
 		};
 
-		this.setFinal = function(myData){ 			
+		this.setFinal = function(myData) { 			
 			this.init();
 
 			var imageData = canvasImageViewer.getContext("2d").createImageData(ImageDefaultSize, ImageDefaultSize);
