@@ -3,12 +3,12 @@ var ImageDefaultSize = ns.ImageDefaultSize;
 function ImageReader(container) {
     var that = this;
 
-	this.onImageReceived = function() {};
+    this.onImageReceived = function() {};
 
-	this.init = function() {
+    this.init = function() {
 
-		var inputElement = document.createElement("input");
-		inputElement.setAttribute("type", "file");
+        var inputElement = document.createElement("input");
+        inputElement.setAttribute("type", "file");
         container.appendChild(inputElement);
 
         var btnElement = document.createElement("button");
@@ -18,7 +18,7 @@ function ImageReader(container) {
         container.appendChild(btnElement);
 
         var reader, canvas, ctx;
- 
+
         function handleFiles(ev) {
 
             var file = inputElement.files[0];

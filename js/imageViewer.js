@@ -8,7 +8,7 @@
 		var canvasImageViewer;
 		var ctx;
 		var imageDataNew;
-		
+
 		this.init = function() {
 			canvasImageViewer = document.createElement("canvas");
 			ctx = canvasImageViewer.getContext("2d");
@@ -23,15 +23,15 @@
 		this.setImage = function(imageData) {			
 			ctx.putImageData(imageData, 0, 0);			
 		};
- 		
- 		this.setFinal = function(myData){ 			
- 			this.init();
 
- 			var imageData = canvasImageViewer.getContext("2d").createImageData(ImageDefaultSize, ImageDefaultSize);
- 			imageData.data.set(myData);
+		this.setFinal = function(myData){ 			
+			this.init();
 
- 			this.setImage(imageData); 
- 		}
+			var imageData = canvasImageViewer.getContext("2d").createImageData(ImageDefaultSize, ImageDefaultSize);
+			imageData.data.set(myData);
+
+			this.setImage(imageData); 
+		}
 	}
 
 	ns.ImageViewer = ImageViewer;
