@@ -30,8 +30,9 @@
 
 			return ImageFinal;
 			
-		};
+	    };
 	}
+	
 	ns.ImageMerger = ImageMerger;
 
 }()); 

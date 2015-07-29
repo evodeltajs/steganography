@@ -33,6 +33,7 @@
 			return [firstAux, secondAux];
 		};
 	}
+	
 	ns.ImageUnmerger = ImageUnmerger;
 
 }()); 

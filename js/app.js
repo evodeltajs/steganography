@@ -1,4 +1,5 @@
 (function() {
+
 	"use strict";
 
 	var ImageReader = ns.ImageReader;
@@ -6,8 +7,9 @@
 	var ImageMerger = ns.ImageMerger;
 	var ImageUnmerger = ns.ImageUnmerger;
 
-	var imageReader1, imageReader2, imageReader3, inputImageViewer1,inputImageViewer2, inputImageViewer3, outputUnmergeFirst, outputUnmergeSecond; 	
- 	var imageData1, imageData2;
+	var imageReaderFirst, imageReaderSecond, imageReaderMerged;
+	var inputImageViewerFirst, inputImageViewerSecond, inputMergeView, outputUnmergeViewFirst, outputUnmergeViewSecond; 	
+ 	var imageDataFirst, imageDataSecond;
 
 	init();
 
@@ -19,21 +21,21 @@
 	function initImageReaders() {
 
 		var imagesLoaded = 0;
-		var imageReaderContainer1 = document.getElementById("imageReader1");
-		var imageReaderContainer2 = document.getElementById("imageReader2");
-		imageReader1 = new ImageReader(imageReaderContainer1);
-		imageReader2 = new ImageReader(imageReaderContainer2);	
+		var imageReaderContainer1 = document.getElementById("imageReaderFirst");
+		var imageReaderContainer2 = document.getElementById("imageReaderSecond");
+		imageReaderFirst = new ImageReader(imageReaderContainer1);
+		imageReaderSecond = new ImageReader(imageReaderContainer2);	
 
 
-		imageReader1.onImageReceived = function(imageData) {
+		imageReaderFirst.onImageReceived = function(imageData) {
 
-			inputImageViewer1.setImage(imageData);
-			imageData1 = imageData;
-			imagesLoaded +=1;
+			inputImageViewerFirst.setImage(imageData);
+			imageDataFirst = imageData;
+			imagesLoaded += 1;
 	 	
 		 	if(imagesLoaded === 2) {
 
-				var rezImg = initImageMerger(imageData1,imageData2);
+				var rezImg = initImageMerger(imageDataFirst,imageDataSecond);
 				initMergeView(rezImg);
 			}
 			else{
@@ -42,17 +44,17 @@
 
 		};
 
-		imageReader1.init();
+		imageReaderFirst.init();
 
-		imageReader2.onImageReceived = function(imageData) {
+		imageReaderSecond.onImageReceived = function(imageData) {
 
-			inputImageViewer2.setImage(imageData);
-			imageData2 = imageData;
-			imagesLoaded +=1;
+			inputImageViewerSecond.setImage(imageData);
+			imageDataSecond = imageData;
+			imagesLoaded += 1;
 
 			if(imagesLoaded === 2){
 			 	
-				var rezImg = initImageMerger(imageData1,imageData2);
+				var rezImg = initImageMerger(imageDataFirst,imageDataSecond);
 				initMergeView(rezImg);
 			}
 			else {
@@ -60,57 +62,55 @@
 			}
 		};
 
-		imageReader2.init();
+		imageReaderSecond.init();
 	}
 
 	function initImageViewers() {
 
-		var inputImageViewerContainer1 = document.getElementById("inputImageViewer1");
-		var inputImageViewerContainer2 = document.getElementById("inputImageViewer2");
+		var inputImageViewerContainerFirst = document.getElementById("inputImageViewerFirst");
+		var inputImageViewerContainerSecond = document.getElementById("inputImageViewerSecond");
 
-		inputImageViewer1 = new ImageViewer(inputImageViewerContainer1);
-		inputImageViewer1.init();
+		inputImageViewerFirst = new ImageViewer(inputImageViewerContainerFirst);
+		inputImageViewerFirst.init();
 
-		inputImageViewer2 = new ImageViewer(inputImageViewerContainer2);
-		inputImageViewer2.init();
+		inputImageViewerSecond = new ImageViewer(inputImageViewerContainerSecond);
+		inputImageViewerSecond.init();
 	}
 
-	function initImageMerger(imageData1,imageData2) {
+	function initImageMerger(imageDataFirst,imageDataSecond) {
 
-		// console.log ("Merge process has started");		 
-		var imageMergerExecution =  new ImageMerger(imageData1,imageData2);
+		var imageMergerExecution =  new ImageMerger(imageDataFirst, imageDataSecond);
 		var result = imageMergerExecution.merge();
 		
 		return result;
 	}
 
-	function initMergeView(imageData) {
+	function initMergeView(mergedImageData) {
 
 		var imageContainerMerge = document.getElementById("imageMergerFinal");
-		inputImageViewer3 = new ImageViewer(imageContainerMerge); 
-		inputImageViewer3.setFinal(imageData);
+		inputMergeView = new ImageViewer(imageContainerMerge); 
+		inputMergeView.setFinal(mergedImageData);
 
-		initImageUnmerger(imageData); 
+		initImageUnmerger(mergedImageData); 
 	}
 
-	function initImageUnmerger(imageData) {
+	function initImageUnmerger(mergedImageData) {
  
-		var imageUnmerger = new ImageUnmerger(imageData);
-		var imageArray = imageUnmerger.unmerge();	
-		initUnmergeView(imageArray);
+		var imageUnmerger = new ImageUnmerger(mergedImageData);
+		var unmergedArray = imageUnmerger.unmerge();	
+		initUnmergeView(unmergedArray);
 	}
 
-	function initUnmergeView(imageArray) {
+	function initUnmergeView(unmergedArray) {
  
 		var imageContainerUnmergeFirst = document.getElementById("imageUnmergeFirst");
 		var imageContainerUnmergeSecond = document.getElementById("imageUnmergeSecond");
 
-		outputUnmergeFirst = new ImageViewer(imageContainerUnmergeFirst);
-		outputUnmergeSecond= new ImageViewer(imageContainerUnmergeSecond);
+		outputUnmergeViewFirst = new ImageViewer(imageContainerUnmergeFirst);
+		outputUnmergeViewSecond= new ImageViewer(imageContainerUnmergeSecond);
 
-		outputUnmergeFirst.setFinal(imageArray[0]);
-		outputUnmergeSecond.setFinal(imageArray[1]);
-
+		outputUnmergeViewFirst.setFinal(unmergedArray[0]);
+		outputUnmergeViewSecond.setFinal(unmergedArray[1]);
 	
 	}
  
