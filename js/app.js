@@ -6,8 +6,7 @@
 	var ImageMerger = ns.ImageMerger;
 	var ImageUnmerger = ns.ImageUnmerger;
 
-	var imageReader1, imageReader2, imageReader3, inputImageViewer1,inputImageViewer2, inputImageViewer3, outputUnmergeFirst, outputUnmergeSecond;
- 	
+	var imageReader1, imageReader2, imageReader3, inputImageViewer1,inputImageViewer2, inputImageViewer3, outputUnmergeFirst, outputUnmergeSecond; 	
  	var imageData1, imageData2;
 
 	init();
@@ -118,8 +117,5 @@
 
 	
 	}
-
-
-
-
+ 
 }());
