@@ -1,8 +1,6 @@
-(function() {
+"use strict";
 
-    "use strict";
-
-var ImageDefaultSize = ns.ImageDefaultSize;
+var ImageDefaultSize = require("./ImageDefaults").ImageDefaultSize;
 
 function ImageReader(container) {
     var that = this;
@@ -59,6 +57,4 @@ function ImageReader(container) {
     };
 }
 
-ns.ImageReader = ImageReader;
-
-}()); 
+module.exports = ImageReader;
