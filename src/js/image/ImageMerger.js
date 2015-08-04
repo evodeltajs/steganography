@@ -1,9 +1,7 @@
 "use strict";
-
-var ImageDefaultSize = require("./ImageDefaults").ImageDefaultSize;
+ 
 
 function ImageMerger(ImageData1, ImageData2) {
-	this.sizes = ImageDefaultSize;
 	this.ImageResult1 = ImageData1;
 	this.ImageResult2 = ImageData2;
 
@@ -11,10 +9,10 @@ function ImageMerger(ImageData1, ImageData2) {
 
 		var sizeImageResult2 = this.ImageResult2.data.length;
 		var sizeImageResult1 = this.ImageResult1.data.length;
+		// console.log(sizeImageResult1);
+		var i;
 		var aux = new Uint8ClampedArray(sizeImageResult2);
 		var finalImage = new Uint8ClampedArray(sizeImageResult2);
-
-		var i;
 
 		for(i =0; i<sizeImageResult2; i++) {
 

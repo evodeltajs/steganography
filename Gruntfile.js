@@ -8,5 +8,5 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks("grunt-browserify");
 
-	grunt.registerTask("default", ["jshint", "browserify", "copy", "connect", "watch"]);
+	grunt.registerTask("default", ["jshint", "browserify:vendor", "browserify:client", "copy", "connect", "watch"]);
 };

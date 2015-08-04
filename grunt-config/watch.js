@@ -1,7 +1,10 @@
 module.exports = {
 	js: {
 		files: "src/js/**/*.js",
-		tasks: ["jshint"]
+		tasks: ["jshint", "browserify:client"],
+		options: {
+			spawn: false
+		}
 	},
 
 	htmlCss: {

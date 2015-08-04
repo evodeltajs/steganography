@@ -1,19 +1,15 @@
 "use strict";
 
-var ImageDefaultSize = require("./ImageDefaults").ImageDefaultSize;
-
-function ImageUnmerger (ImageData) {
+function ImageUnmerger (ImageData, size) {
 	this.inputImage= ImageData;
-	this.sizes = ImageDefaultSize * ImageDefaultSize * 4;
+	this.sizes = size.width* size.height * 4;
 
 	this.unmerge = function() {
 
 		var firstAux = new Uint8ClampedArray(this.sizes);
 		var secondAux = new Uint8ClampedArray(this.sizes); 
 		var temp = new Uint8ClampedArray(this.sizes);
-
 		var i;
-
 		for (i=0; i<this.sizes; i++) {
 
 			firstAux[i] = 0;

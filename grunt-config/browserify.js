@@ -10,7 +10,7 @@ module.exports = {
 			require: browserifyExternal
 		}
 	},
-	watch: {
+	client: {
 		files: {
 			"dist/js/client.js": ["src/js/**/*.js"]
 		},
@@ -19,7 +19,6 @@ module.exports = {
 			browserifyOptions: {				
 				debug: true
 			},
-			watch: true,
 		},
 	},
 };
