@@ -1,12 +1,13 @@
 "use strict";
 
-function ImageSize(width, height){
+function ImageSize(width, height) {
+
 	this.width = width;
 	this.height = height;
-	this.setSizes = function (width,height){
+
+	this.setSizes = function (width, height) {
 		this.width = width;
 		this.height = height;
-
 	};
 }	
 

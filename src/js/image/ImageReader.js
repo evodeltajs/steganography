@@ -2,16 +2,15 @@
 
 var ImageSize = require("./ImageSize");
 
-
 function ImageReader(container) {
     var that = this;
    
     this.onImageReceived = function() {};
-    this.onSizeRecieved = function(){};
+    this.onSizeRecieved = function() {};
+
     this.init = function() {
 
-        var reader, canvas, ctx;     
-
+        var reader, canvas, ctx;
         var inputElement = document.createElement("input");
         inputElement.setAttribute("type", "file");
         container.appendChild(inputElement);
@@ -20,9 +19,7 @@ function ImageReader(container) {
         btnElement.type = "button";
         btnElement.innerText = "Load";
         btnElement.addEventListener("click", handleFiles);
-        container.appendChild(btnElement);
-
-        
+        container.appendChild(btnElement);        
 
         function handleFiles(ev) {
 
@@ -30,10 +27,7 @@ function ImageReader(container) {
 
             if (file) {
                 reader = new FileReader();
-
                 canvas = document.createElement("canvas");
-               
-
                 ctx = canvas.getContext("2d");
 
                 reader.readAsDataURL(file);
@@ -43,37 +37,22 @@ function ImageReader(container) {
                     img.onload = function() {
                         canvas.width = img.width;
                         canvas.height = img.height;
-                      
-                        // console.log(canvas.width +" " + canvas.height);
 
                         ctx.drawImage(img,0,0);
 
                         var imageData = ctx.getImageData(0, 0, img.width, img.height);
-                        // console.log(canvas.width + " " + canvas.height);
                         that.onImageReceived(imageData);
 
                         var sizes = new ImageSize(canvas.width,  canvas.height); 
                         that.onSizeRecieved(sizes);   
-                        // console.log(sizes);
-                        // console.log(imageData);
+           
                     };
 
                     img.src = event.target.result;
-                   
-                   
-                   
-                    // return [canvas.width, canvas.height];
-
-
-                };
-
-                
+                };            
             }
         }
-
-    };
-
-    
+    };    
 }
 
 module.exports = ImageReader;

@@ -5,12 +5,12 @@ function ImageUnmerger (ImageData, size) {
 	this.sizes = size.width* size.height * 4;
 
 	this.unmerge = function() {
-
+		var i;
 		var firstAux = new Uint8ClampedArray(this.sizes);
 		var secondAux = new Uint8ClampedArray(this.sizes); 
 		var temp = new Uint8ClampedArray(this.sizes);
-		var i;
-		for (i=0; i<this.sizes; i++) {
+		
+		for (i = 0; i < this.sizes; i++) {
 
 			firstAux[i] = 0;
 			secondAux[i] = 0;	
@@ -18,7 +18,7 @@ function ImageUnmerger (ImageData, size) {
 
 		}
 
-		for (i=0; i<this.sizes; i++) {
+		for (i = 0; i < this.sizes; i++) {
 
 			temp[i] = this.inputImage[i];
 			temp[i] = temp[i] >> 2 << 2;
@@ -27,7 +27,7 @@ function ImageUnmerger (ImageData, size) {
 			secondAux[i] = secondAux[i] * 64;
 
 		}
-
+		
 		return [firstAux, secondAux];
 	};
 }

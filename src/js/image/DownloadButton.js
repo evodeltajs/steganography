@@ -1,24 +1,23 @@
 "use strict";
 
-function DownloadButton(id,canvas){
+function DownloadButton(id,canvas) {
 
 	var container = document.getElementById(id);	
 	var downloadBtn = document.createElement("a");
 
-	container.addEventListener("mouseover", function(){
+	container.addEventListener("mouseover", function() {
     	
     	downloadBtn.className = "downloadBtn";
     	downloadBtn.innerHTML = "Download";
     	
     	container.appendChild(downloadBtn);
 
-    	downloadBtn.addEventListener("click", function(){
+    	downloadBtn.addEventListener("click", function() {
 
     		downloadBtn.href = canvas.toDataURL();
     		downloadBtn.download = "image.png";
 
-    	},false);
-
+    	}, false);
 	});
 	// container.addEventListener("mouseout",function(){
 

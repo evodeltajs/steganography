@@ -1,19 +1,15 @@
 "use strict";
 
-function RefreshButton(){
+function RefreshButton(container) {
 
 	var btnRefresh = document.createElement("button");
 	btnRefresh.type = "button";
 	btnRefresh.innerText = "Refresh";
+	document.getElementById(container.id).appendChild(btnRefresh);
 
-	document.getElementById("refreshBtn").appendChild(btnRefresh);
+	btnRefresh.addEventListener("click",function() {
 
-
-	btnRefresh.addEventListener("click",function(){
-
-
- 	location.reload();
-
+ 		location.reload();
 	});
 }
 

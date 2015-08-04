@@ -20,82 +20,72 @@ var sizesFirst, sizesSecond ;
 
 init();
 
-function init() {		
-	initImageUpload();
+function init() {	
 
-	new RefreshButton();
-	var refreshBtn = document.getElementById("refreshBtn");
+	initImageUpload();
+	var idRefresh = document.getElementById("refreshBtn");
+	var refreshBtn = new RefreshButton(idRefresh);
+	
 }
 
 
-function initImageUpload(){
+function initImageUpload() {
 	var imageUploadContainerFirst = document.getElementById("imageUploadFirst");
 	var imageUploadContainerSecond = document.getElementById("imageUploadSecond");
-	// var imageUploadContainerSecond = document.getElementById("imageUploadSecond");
 
 	imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "firstUpload" ); 
 	imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "secondUpload");
-	// imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "secondUpload");
 
 	imageUploadFirst.initUploadButtons();
 	imageUploadSecond.initUploadButtons();
-	// imageUploadSecond.initUploadButtons();
-	
-
 
 	var mergeBtn = new MergeButton();
 	var btnMerge = document.getElementById("btnMerge");
 
-
-	imageUploadFirst.onImageUpload = function(imageData){
+	imageUploadFirst.onImageUpload = function(imageData) {
 		imageDataFirst = imageData;
 		imagesLoaded +=1;
 		// console.log(imagesLoaded);
 
-		imageUploadFirst.onSizesRecieved = function(sizes){
+		imageUploadFirst.onSizesRecieved = function(sizes) {
 			sizesFirst = sizes;
 			// console.log(sizesFirst);
 
 			if (imagesLoaded === 2) {
 
-				mergeBtn.activate();
-			
-				btnMerge.addEventListener("click", function(){					
+				mergeBtn.activate();			
+				btnMerge.addEventListener("click", function() {					
 
-					if(btnMergeOn){
-
-					 		// console.log(sizesFirst + " " + sizesSecond);  
-							var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
-							initMergeView(rezImg);
-							imagesLoaded = 0;						 
+					if (btnMergeOn){
+				 		// console.log(sizesFirst + " " + sizesSecond);  
+						var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
+						initMergeView(rezImg);
+						imagesLoaded = 0;						 
 					}
 
 					btnMergeOn = false;
 				});
 			}
-
 			else{
 			 	// console.log ("You need to input two files!");
 			}
 		}; 
 	};
 
-	imageUploadSecond.onImageUpload = function(imageData){
+	imageUploadSecond.onImageUpload = function(imageData) {
 		imageDataSecond = imageData;
 		imagesLoaded +=1;
 
-		imageUploadSecond.onSizesRecieved = function(sizes){
+		imageUploadSecond.onSizesRecieved = function(sizes) {
 				sizesSecond = sizes;
 				// console.log(sizesSecond);
 		
-			if(imagesLoaded === 2) {
+			if (imagesLoaded === 2) {
 
-				mergeBtn.activate();
-			
-				btnMerge.addEventListener("click", function(){
+				mergeBtn.activate();			
+				btnMerge.addEventListener("click", function() {
 
-					if(btnMergeOn){
-
+					if (btnMergeOn) {
 						 	// console.log(sizesFirst + " " + sizesSecond);
 							var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
 							initMergeView(rezImg);
@@ -104,23 +94,19 @@ function initImageUpload(){
 					}
 
 					btnMergeOn = false;
-
 				});				
-			}
-			
-			else{
+			}			
+			else {
 				 	// console.log ("You need to input two files!");
 			} 
 		};
 	};
-
 }
 
 
-function initImageMerger(imageDataFirst,imageDataSecond , sizesFirst,sizesSecond) {
+function initImageMerger(imageDataFirst, imageDataSecond, sizesFirst, sizesSecond) {
 
-	console.log(sizesFirst.width + " "+sizesFirst.height + " " + sizesSecond.width + " " + sizesSecond.height);
-
+	// console.log(sizesFirst.width + " "+sizesFirst.height + " " + sizesSecond.width + " " + sizesSecond.height);
 	var imageMergerExecution =  new ImageMerger(imageDataFirst, imageDataSecond);
 	var result = imageMergerExecution.merge();
 	// console.log(result);
@@ -128,8 +114,7 @@ function initImageMerger(imageDataFirst,imageDataSecond , sizesFirst,sizesSecond
 }
 
 function initMergeView(mergedImageData) {
-	if(sizesFirst.width > 1024 || sizesSecond.width >1024 || sizesFirst.height >1024 || sizesSecond.height > 1024)
-	{
+	if (sizesFirst.width > 1024 || sizesSecond.width >1024 || sizesFirst.height >1024 || sizesSecond.height > 1024) {
 		console.log("Images are too big!");
 	}
 
@@ -144,17 +129,14 @@ function initMergeView(mergedImageData) {
 		// console.log(canvasMerged);
 		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged);
 
-
 		initImageUnmerger(mergedImageData, sizesFirst, sizesSecond);
-
-		}
-		else
-		{
-			console.log("Images are not of same size");
-		}
+	}
+	else {
+		console.log("Images are not of same size");
+	}
 }
 
-function initImageUnmerger(mergedImageData, sizesFirst ,sizesSecond) {
+function initImageUnmerger(mergedImageData, sizesFirst, sizesSecond) {
 
 	var imageUnmerger = new ImageUnmerger(mergedImageData, sizesFirst);
 	var unmergedArray = imageUnmerger.unmerge();	
@@ -175,10 +157,8 @@ function initUnmergeView(unmergedArray, sizesFirst, sizesSecond) {
 
 	var canvasUnmergedFirst = outputUnmergeViewFirst.getCanvas();
 	var canvasUnmergedSecond = outputUnmergeViewSecond.getCanvas();
-	console.log(canvasUnmergedFirst);
-	console.log(canvasUnmergedSecond);
+	// console.log(canvasUnmergedFirst);
+	// console.log(canvasUnmergedSecond);
 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id, canvasUnmergedFirst);
 	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id, canvasUnmergedSecond);
-
-
 }

@@ -6,11 +6,9 @@ function ImageMerger(ImageData1, ImageData2) {
 	this.ImageResult2 = ImageData2;
 
 	this.merge = function() {
-
-		var sizeImageResult2 = this.ImageResult2.data.length;
-		var sizeImageResult1 = this.ImageResult1.data.length;
-		// console.log(sizeImageResult1);
 		var i;
+		var sizeImageResult2 = this.ImageResult2.data.length;
+		var sizeImageResult1 = this.ImageResult1.data.length;		
 		var aux = new Uint8ClampedArray(sizeImageResult2);
 		var finalImage = new Uint8ClampedArray(sizeImageResult2);
 
