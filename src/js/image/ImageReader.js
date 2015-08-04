@@ -13,13 +13,14 @@ function ImageReader(container) {
         var reader, canvas, ctx;
         var inputElement = document.createElement("input");
         inputElement.setAttribute("type", "file");
+        inputElement.addEventListener("change", handleFiles, false);
         container.appendChild(inputElement);
 
-        var btnElement = document.createElement("button");
-        btnElement.type = "button";
-        btnElement.innerText = "Load";
-        btnElement.addEventListener("click", handleFiles);
-        container.appendChild(btnElement);        
+        // var btnElement = document.createElement("button");
+        // btnElement.type = "button";
+        // btnElement.innerText = "Load";
+        // btnElement.addEventListener("click", handleFiles);
+        // container.appendChild(btnElement);        
 
         function handleFiles(ev) {
 
@@ -41,7 +42,12 @@ function ImageReader(container) {
                         ctx.drawImage(img,0,0);
 
                         var imageData = ctx.getImageData(0, 0, img.width, img.height);
-                        that.onImageReceived(imageData);
+
+                        // if (ok) {
+                            that.onImageReceived(imageData, { ok: true });                            
+                        // } else {
+                        //     that.onImageReceived(imageData, { ok: false }, "message");                            
+                        // }
 
                         var sizes = new ImageSize(canvas.width,  canvas.height); 
                         that.onSizeRecieved(sizes);   
