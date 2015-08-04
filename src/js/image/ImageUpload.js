@@ -13,18 +13,18 @@ function ImageUpload(container, className) {
     this.uploadDiv = container; 
 
     var buttonContainer = document.createElement("div");
-    buttonContainer.className = "image-upload button-container";
+    buttonContainer.className = "button-container";
 
     var imageContainer = document.createElement("div");
-    imageContainer.className = "image-upload image-container";
+    imageContainer.className = "image-container";
 
     this.initUploadButtons = function() {
 
         var imageBtn = document.createElement("button");
         var urlBtn = document.createElement("button");
-        imageBtn.className = "image-upload button-container image-btn";
+        imageBtn.className = "image-btn";
         imageBtn.innerHTML = "Image";
-        urlBtn.className = "image-upload button-container url-btn";
+        urlBtn.className = "url-btn";
         urlBtn.innerHTML = "URL";
 
         buttonContainer.appendChild(imageBtn);
@@ -50,7 +50,7 @@ function ImageUpload(container, className) {
 
         var inputImageViewer;
         var divReader =  document.createElement("div");
-        divReader.className = "image-upload image-container "+ className;
+        divReader.className =  className;
 
         var reader = new ImageReader(divReader);
         reader.init();
@@ -61,7 +61,7 @@ function ImageUpload(container, className) {
 
             var newUploadBtn;
             var divViewer = document.createElement("div");
-            divViewer.className = "image-upload image-container " + "viewer";
+            divViewer.className = "viewer";
             var imageDataThis = imageData;
 
             reader.onSizeRecieved = function(size) {
@@ -75,7 +75,7 @@ function ImageUpload(container, className) {
                 imageContainer.removeChild(divReader);                   
                 imageContainer.appendChild(divViewer);
 
-                divViewer.addEventListener("mouseover", function() {
+                divViewer.addEventListener("mouseenter", function() {
 
                     newUploadBtn = document.createElement("button");
                     newUploadBtn.className = "uploadBtn";
@@ -94,7 +94,7 @@ function ImageUpload(container, className) {
                 that.onImageUpload(imageDataThis);
                 that.onSizesRecieved(sizes);
 
-                divViewer.addEventListener("mouseout", function() {
+                divViewer.addEventListener("mouseleave", function() {
 
                     divViewer.removeChild(newUploadBtn);
                 });                
@@ -106,7 +106,7 @@ function ImageUpload(container, className) {
     this.initURL = function() {
         
         var divURL = document.createElement("div");
-        divURL.className = "image-upload image-container url-reader";
+        divURL.className = "url-reader";
 
         var urlReader = new UrlReader(divURL);
         urlReader.init();
@@ -116,7 +116,7 @@ function ImageUpload(container, className) {
 
     //to clear the image-container of children
     this.clean = function() {
-        
+
         while(imageContainer.firstChild) {
             imageContainer.removeChild(imageContainer.firstChild);
         }

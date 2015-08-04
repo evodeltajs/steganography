@@ -17,7 +17,9 @@ function UrlReader(container, urlLink) {
    		container.appendChild(urlBtn);
 
    		// console.log(urlLink);
-   
+        //https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png
+
+
         urlBtn.addEventListener("click", function() {
             
         	//regexes...
@@ -30,28 +32,28 @@ function UrlReader(container, urlLink) {
              
                 var img = new Image();
                 // var img = document.createElement("image");
-                img.crossOrigin = "anonymous";                
-                //container.appendChild(img);
+                    
+                // container.appendChild(img);
                 container.removeChild(urlField);
                 container.removeChild(urlBtn);
 
                 img.onload = function() {
                     
-                    canvas.width = ImageSize.width;
-                    canvas.height = ImageSize.height;
-
-                    // console.log(canvas.width +" " + canvas.height);
-
-                    ctx.drawImage(img,0,0);
-
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    console.log(canvas.width +" " + canvas.height);
+                    ctx.drawImage(this,0,0);
+                    console.log(canvas);
                     var imageData = ctx.getImageData(0, 0, img.width, img.height);
                     that.onImageReceived(imageData);
 
                     // console.log(imageData);                    
                 };
+                img.crossOrigin = "Anonymous";  
+                img.src = url;
 
                 container.appendChild(canvas);
-                 
+                
             }
 			else {
 				alert("Input a link");

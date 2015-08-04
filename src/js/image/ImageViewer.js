@@ -1,5 +1,4 @@
-"use strict";
- 
+"use strict"; 
 
 function ImageViewer(container, sizes) {
 

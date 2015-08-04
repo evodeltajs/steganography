@@ -5,7 +5,7 @@ function DownloadButton(id,canvas) {
 	var container = document.getElementById(id);	
 	var downloadBtn = document.createElement("a");
 
-	container.addEventListener("mouseover", function() {
+	container.addEventListener("mouseenter", function() {
     	
     	downloadBtn.className = "downloadBtn";
     	downloadBtn.innerHTML = "Download";
@@ -19,7 +19,7 @@ function DownloadButton(id,canvas) {
 
     	}, false);
 	});
-	// container.addEventListener("mouseout",function(){
+	// container.addEventListener("mouseleave",function(){
 
 	// 	container.removeChild(downloadBtn);
 	// });    

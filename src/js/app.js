@@ -42,65 +42,52 @@ function initImageUpload() {
 	var mergeBtn = new MergeButton();
 	var btnMerge = document.getElementById("btnMerge");
 
+	initBtnMerge();
+
 	imageUploadFirst.onImageUpload = function(imageData) {
 		imageDataFirst = imageData;
-		imagesLoaded +=1;
-		// console.log(imagesLoaded);
-
-		imageUploadFirst.onSizesRecieved = function(sizes) {
-			sizesFirst = sizes;
-			// console.log(sizesFirst);
-
-			if (imagesLoaded === 2) {
-
-				mergeBtn.activate();			
-				btnMerge.addEventListener("click", function() {					
-
-					if (btnMergeOn){
-				 		// console.log(sizesFirst + " " + sizesSecond);  
-						var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
-						initMergeView(rezImg);
-						imagesLoaded = 0;						 
-					}
-
-					btnMergeOn = false;
-				});
-			}
-			else{
-			 	// console.log ("You need to input two files!");
-			}
-		}; 
+		onImagesLoaded();
 	};
+
+	imageUploadFirst.onSizesRecieved = function(sizes) {
+		sizesFirst = sizes;
+		// console.log(sizesFirst);
+	}; 
 
 	imageUploadSecond.onImageUpload = function(imageData) {
 		imageDataSecond = imageData;
+		onImagesLoaded();
+	};
+
+	imageUploadSecond.onSizesRecieved = function(sizes) {
+		sizesSecond = sizes;
+		// console.log(sizesSecond);
+	};
+
+	function onImagesLoaded() {
 		imagesLoaded +=1;
 
-		imageUploadSecond.onSizesRecieved = function(sizes) {
-				sizesSecond = sizes;
-				// console.log(sizesSecond);
-		
-			if (imagesLoaded === 2) {
+		if (imagesLoaded === 2) {
+			mergeBtn.activate();
+		}			
+		else {
+			 	// console.log ("You need to input two files!");
+		} 
+	}
 
-				mergeBtn.activate();			
-				btnMerge.addEventListener("click", function() {
+	function initBtnMerge() {
+		btnMerge.addEventListener("click", function() {
+			if (btnMergeOn) {
+			 	// console.log(sizesFirst + " " + sizesSecond);
+				var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
+				initMergeView(rezImg);
 
-					if (btnMergeOn) {
-						 	// console.log(sizesFirst + " " + sizesSecond);
-							var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
-							initMergeView(rezImg);
+				imagesLoaded = 0;	
 
-							imagesLoaded = 0;						 
-					}
-
-					btnMergeOn = false;
-				});				
+				btnMergeOn = false;					 
 			}			
-			else {
-				 	// console.log ("You need to input two files!");
-			} 
-		};
-	};
+		});
+	}
 }
 
 
