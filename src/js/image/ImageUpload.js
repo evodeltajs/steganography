@@ -7,8 +7,12 @@ var UrlReader = require("./UrlReader");
 function ImageUpload(container, className) {
 
     var that = this;
+    var errorMessage;
+    var flag = false;
     this.onImageUpload = function() {};
     this.onSizesRecieved = function() {};
+    this.onErrorMessageReceived = function() {};
+
     this.className = className;
     this.uploadDiv = container; 
 
@@ -57,16 +61,19 @@ function ImageUpload(container, className) {
         reader.init();
 
         imageContainer.appendChild(divReader);
-
+         var imageDataThis ;
         reader.onImageReceived = function(imageData) {           
 
-           
-            divViewer = document.createElement("div");
-            divViewer.className = "viewer";
-            var imageDataThis = imageData;
+            if(flag){
+                divViewer = document.createElement("div");
+                divViewer.className = "viewer";
+                imageDataThis = imageData; 
 
-            reader.onSizeRecieved = function(size) {
-
+            }
+  
+        };
+        reader.onSizeRecieved = function(size) {
+            if(flag){
                 var sizes = size;
                 inputImageViewer = new ImageViewer(divViewer, sizes);
                 inputImageViewer.init();
@@ -77,12 +84,21 @@ function ImageUpload(container, className) {
                 imageContainer.appendChild(divViewer);
 
                 newUploadButton(divViewer,divReader);
-
+                that.onErrorMessageReceived(errorMessage);
                 that.onImageUpload(imageDataThis);
-                that.onSizesRecieved(sizes);
+                that.onSizesRecieved(sizes);    
+            }            
+        };
 
-                         
-            };  
+        reader.onErrorMessageReceived = function(message){
+            errorMessage = message;
+
+            if(errorMessage === "OK"){
+                flag = true;
+               
+            }
+            that.onErrorMessageReceived(errorMessage);
+
         };
 	};
 
@@ -93,6 +109,7 @@ function ImageUpload(container, className) {
         divURL.className = "url-reader";
         var divUrlViewer;
         var inputImageUrlViewer;
+        var urlImageDataThis;
         var urlReader = new UrlReader(divURL);
         urlReader.init();
 
@@ -100,31 +117,45 @@ function ImageUpload(container, className) {
 
         urlReader.onImageReceived = function(imageData) {
 
-            
-            var urlImageDataThis = imageData;
+            if(flag){
+            urlImageDataThis = imageData;
             divUrlViewer = document.createElement("div");
             divUrlViewer.className = "viewer";
+            }
+
+        };    
+
+        urlReader.onSizeRecieved = function(size) {
+            if(flag){
+            var sizes = size;
+            inputImageUrlViewer = new ImageViewer(divUrlViewer,sizes);
+            inputImageUrlViewer.init();
+
+            urlImageDataThis = inputImageUrlViewer.setImage(urlImageDataThis);
+
+            imageContainer.removeChild(divURL);
+            imageContainer.appendChild(divUrlViewer);
 
 
-            urlReader.onSizeRecieved = function(size) {
+            newUploadButton(divUrlViewer,divURL);
 
-                var sizes = size;
-                inputImageUrlViewer = new ImageViewer(divUrlViewer,sizes);
-                inputImageUrlViewer.init();
+            that.onImageUpload(urlImageDataThis);
+            that.onSizesRecieved(sizes);
 
-                urlImageDataThis = inputImageUrlViewer.setImage(urlImageDataThis);
+            }
+        };  
 
-                imageContainer.removeChild(divURL);
-                imageContainer.appendChild(divUrlViewer);
+        urlReader.onErrorMessageReceived = function(message){
+            errorMessage = message;
 
+            if(errorMessage === "OK"){
+                flag = true;    
+                console.log(errorMessage);
+               
+            }
+            that.onErrorMessageReceived(errorMessage);
 
-                newUploadButton(divUrlViewer,divURL);
-
-                that.onImageUpload(urlImageDataThis);
-                that.onSizesRecieved(sizes);
-
-            };
-        };       
+        }; 
     }; 
 
     //to clear the image-container of children

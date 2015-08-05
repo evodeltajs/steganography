@@ -7,6 +7,8 @@ function UrlReader(container, urlLink) {
     
     this.onImageReceived = function() {};
     this.onSizeRecieved = function() {};
+    this.onErrorMessageReceived = function() {};
+
     this.init = function() {
 
         var reader, canvas, ctx;
@@ -15,19 +17,14 @@ function UrlReader(container, urlLink) {
         urlBtn.innerHTML = "Load";
 
     	container.appendChild(urlField);
-   		container.appendChild(urlBtn);
-
-   		// console.log(urlLink);
-        //https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png     
-
+   		container.appendChild(urlBtn); 
+        //https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png 
         urlBtn.addEventListener("click", function() {
             
-        	//regexes...
             if(urlField.value !== "") {
-         
+
 	            var url = urlField.value;
                 var xhr = new XMLHttpRequest();
-
                 xhr.onreadystatechange = function() {
 
                     if(xhr.readyState === 4) {
@@ -37,29 +34,24 @@ function UrlReader(container, urlLink) {
                             ctx = canvas.getContext("2d");
 
                             var img = new Image();
-                            // var img = document.createElement("image");                                    
-                            // container.appendChild(img);
                             container.removeChild(urlField);
                             container.removeChild(urlBtn);
 
                             img.onload = function() {
-                                
+                                that.onErrorMessageReceived("OK");
                                 canvas.width = img.width;
                                 canvas.height = img.height;                               
                                 ctx.drawImage(this,0,0);
                                 
-                                var imageData = ctx.getImageData(0, 0, img.width, img.height);
-
-                                
-                                that.onImageReceived(imageData);  
-
+                                var imageData = ctx.getImageData(0, 0, img.width, img.height);                                
+                                that.onImageReceived(imageData); 
                                 var sizes = new ImageSize(canvas.width, canvas.height);
-                                that.onSizeRecieved(sizes);              
+                                that.onSizeRecieved(sizes);        
+                                
                             };
 
                             img.crossOrigin = "Anonymous";  
                             img.src = url;
-                            // container.appendChild(canvas);
                         }
                         else {
                             handleError();
@@ -79,10 +71,8 @@ function UrlReader(container, urlLink) {
     };
 
     function handleError(){
-        console.log("Cannot load that image, find another");
+          that.onErrorMessageReceived("URL is invalid.");
     }
-
-
 }
 
 module.exports = UrlReader;

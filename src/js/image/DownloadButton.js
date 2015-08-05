@@ -22,10 +22,10 @@ function DownloadButton(id,canvas) {
 
     }, false);
 	 
-	// container.addEventListener("mouseleave",function(){
+	container.addEventListener("mouseleave",function(){
 
-	// 	container.removeChild(downloadBtn);
-	// });    
+		container.removeChild(downloadBtn);
+	});    
 }
 
 module.exports = DownloadButton;

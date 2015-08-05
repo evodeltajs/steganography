@@ -9,6 +9,7 @@ var MergeButton = require("./image/MergeButton");
 var RefreshButton = require("./image/RefreshButton");
 var DownloadButton = require("./image/DownloadButton");
 var ImageSize = require("./image/ImageSize");
+var ErrorBox = require("./image/ErrorBox");
 
 var imageReaderFirst, imageReaderSecond, imageReaderMerged;
 var inputImageViewerFirst, inputImageViewerSecond, inputMergeView, outputUnmergeViewFirst, outputUnmergeViewSecond; 	
@@ -19,76 +20,130 @@ var imageLoadedSecond = 0;
 var btnMergeOn = true;
 var imageUploadFirst, imageUploadSecond;
 var sizesFirst, sizesSecond ;
+var errMsgFirst, errMsgSecond ,errMsgMerge;
+var flagFirst = false;
 
 init();
 
 function init() {	
 
-	initImageUpload();
+	var FirstImage = document.getElementById("FirstImage");
+	var SecondImage = document.getElementById("SecondImage");
+	initImageUpload(FirstImage, SecondImage);
+
 	var idRefresh = document.getElementById("refreshBtn");
 	var refreshBtn = new RefreshButton(idRefresh);
 	
 }
 
 
-function initImageUpload() {
-	var imageUploadContainerFirst = document.getElementById("imageUploadFirst");
-	var imageUploadContainerSecond = document.getElementById("imageUploadSecond");
+function initImageUpload(firstImageContainer, secondImageContainer) {
+
+	var imageUploadContainerFirst = document.createElement("div");
+	var imageUploadContainerSecond = document.createElement("div");
+
+	imageUploadContainerFirst.className = "imageUploadFirst";
+	imageUploadContainerSecond.className = "imageUploadSecond";
 
 	imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "firstUpload" ); 
 	imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "secondUpload");
 
+	firstImageContainer.appendChild(imageUploadContainerFirst);
+	secondImageContainer.appendChild(imageUploadContainerSecond);
+
 	imageUploadFirst.initUploadButtons();
 	imageUploadSecond.initUploadButtons();
 
-	var mergeBtn = new MergeButton();
-	var btnMerge = document.getElementById("btnMerge");
+	var ErrorBoxFirstImage = new ErrorBox(firstImageContainer);
+	var ErrorBoxSecondImage = new ErrorBox(secondImageContainer);
 
+	ErrorBoxFirstImage.init();
+	ErrorBoxSecondImage.init();
+	
+	var btnMergeContainer = document.getElementById("btnMergeContainer");
+	var mergeBtn = new MergeButton(btnMergeContainer);
+	var ErrorBoxMergeButton = new ErrorBox(btnMergeContainer);
+
+	ErrorBoxMergeButton.init();
 	initBtnMerge();
 
 	imageUploadFirst.onImageUpload = function(imageData) {
+	 
 		imageLoadedFirst += 1;
 
-		if(imageLoadedFirst === 1){
+		if(imageLoadedFirst === 1) {
 			imageDataFirst = imageData;
 			onImagesLoaded();
 
-		}else if(imageLoadedFirst ===2){
+		}
+		else if(imageLoadedFirst ===2) {
 			imageDataFirst = imageData;
 			imageLoadedFirst = 1;
 		}
-
 	};
- 
+
+	imageUploadFirst.onSizesRecieved = function(sizes) {
+		
+		sizesFirst = sizes;
+	}; 
+
+	imageUploadFirst.onErrorMessageReceived = function(message) {
+
+		if(message ==="OK") {
+			ErrorBoxFirstImage.clear();
+		}
+		else {		 	 
+			ErrorBoxFirstImage.setMessage( message);
+		}
+	};
+
 	imageUploadSecond.onImageUpload = function(imageData) {
+
 		imageLoadedSecond += 1;
 
-		if(imageLoadedSecond === 1){
+		if(imageLoadedSecond === 1) {
 			imageDataSecond = imageData;
 			onImagesLoaded();
 			
-		}else if(imageLoadedSecond === 2){
+		}
+		else if(imageLoadedSecond === 2) {
 			imageDataSecond = imageData;
 			imageLoadedSecond = 1;
 		}
 	};
 
-	imageUploadFirst.onSizesRecieved = function(sizes) {
-		sizesFirst = sizes;
-		// console.log(sizesFirst);
-	}; 
-
 	imageUploadSecond.onSizesRecieved = function(sizes) {
+
 		sizesSecond = sizes;
-		// console.log(sizesSecond);
+	};
+
+	imageUploadSecond.onErrorMessageReceived = function(message) {
+
+		if(message ==="OK") {
+			ErrorBoxSecondImage.clear();
+		}
+	 	else {
+			ErrorBoxSecondImage.setMessage(message);
+		}
+	};
+
+	mergeBtn.onErrorMessageReceived = function(message) {
+
+		if(message === "OK") {
+			ErrorBoxMergeButton.clear();
+		}
+		else {
+			ErrorBoxMergeButton.setMessage(message);
+		}
+
 	};
 
 	function onImagesLoaded() {
+
 		imagesLoaded = imageLoadedFirst + imageLoadedSecond;
-		console.log(imagesLoaded);
 		if (imagesLoaded === 2) {
 			mergeBtn.activate();
-				imagesLoaded = 0;	
+			imagesLoaded = 0;	
 		}			
 		else {
 			 	// console.log ("You need to input two files!");
@@ -96,52 +151,45 @@ function initImageUpload() {
 	}
 
 	function initBtnMerge() {
-		btnMerge.addEventListener("click", function() {
+
+		btnMergeContainer.addEventListener("click", function() {
 			if (btnMergeOn) {
-			 	// console.log(sizesFirst + " " + sizesSecond);
-				var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
-				initMergeView(rezImg);
+			 	var boolMerge = mergeBtn.validate(sizesFirst, sizesSecond);	
 
-			
+			 	if(boolMerge) {
 
-				btnMergeOn = false;	
-				mergeBtn.deactivate();				 
+					var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
+					initMergeView(rezImg);			
+
+					btnMergeOn = false;	
+					mergeBtn.deactivate();	
+				}
+				else {
+					imagesLoaded = 0;
+				}			 
 			}			
 		});
 	}
 }
 
-
 function initImageMerger(imageDataFirst, imageDataSecond, sizesFirst, sizesSecond) {
 
-	// console.log(sizesFirst.width + " "+sizesFirst.height + " " + sizesSecond.width + " " + sizesSecond.height);
 	var imageMergerExecution =  new ImageMerger(imageDataFirst, imageDataSecond);
 	var result = imageMergerExecution.merge();
-	// console.log(result);
 	return result;
 }
 
 function initMergeView(mergedImageData) {
-	if (sizesFirst.width > 1024 || sizesSecond.width >1024 || sizesFirst.height >1024 || sizesSecond.height > 1024) {
-		console.log("Images are too big!");
-	}
+   
+	var imageContainerMerge = document.getElementById("imageMergerFinal");
+	inputMergeView = new ImageViewer(imageContainerMerge,sizesFirst); 
+	inputMergeView.setFinal(mergedImageData);
 
-	else if (sizesFirst.width == sizesSecond.width && sizesFirst.height == sizesSecond.height) {
-		
-		console.log("Same sizes, proceed");
-		var imageContainerMerge = document.getElementById("imageMergerFinal");
-		inputMergeView = new ImageViewer(imageContainerMerge,sizesFirst); 
-		inputMergeView.setFinal(mergedImageData);
+	var canvasMerged = inputMergeView.getCanvas();
+	var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged);
 
-		var canvasMerged = inputMergeView.getCanvas();
-		// console.log(canvasMerged);
-		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged);
-
-		initImageUnmerger(mergedImageData, sizesFirst, sizesSecond);
-	}
-	else {
-		console.log("Images are not of same size");
-	}
+	initImageUnmerger(mergedImageData, sizesFirst, sizesSecond);
+ 
 }
 
 function initImageUnmerger(mergedImageData, sizesFirst, sizesSecond) {
@@ -159,14 +207,12 @@ function initUnmergeView(unmergedArray, sizesFirst, sizesSecond) {
 	outputUnmergeViewFirst = new ImageViewer(imageContainerUnmergeFirst, sizesFirst);
 	outputUnmergeViewSecond= new ImageViewer(imageContainerUnmergeSecond, sizesSecond);
 
-
     outputUnmergeViewFirst.setFinal(unmergedArray[0]);
 	outputUnmergeViewSecond.setFinal(unmergedArray[1]);
 
 	var canvasUnmergedFirst = outputUnmergeViewFirst.getCanvas();
 	var canvasUnmergedSecond = outputUnmergeViewSecond.getCanvas();
-	// console.log(canvasUnmergedFirst);
-	// console.log(canvasUnmergedSecond);
-	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id, canvasUnmergedFirst);
+	 
+ 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id, canvasUnmergedFirst);
 	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id, canvasUnmergedSecond);
 }

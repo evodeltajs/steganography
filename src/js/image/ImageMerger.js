@@ -2,10 +2,12 @@
  
 
 function ImageMerger(ImageData1, ImageData2) {
+
 	this.ImageResult1 = ImageData1;
 	this.ImageResult2 = ImageData2;
 
 	this.merge = function() {
+		
 		var i;
 		var sizeImageResult2 = this.ImageResult2.data.length;
 		var sizeImageResult1 = this.ImageResult1.data.length;		

@@ -7,6 +7,7 @@ function ImageReader(container) {
    
     this.onImageReceived = function() {};
     this.onSizeRecieved = function() {};
+    this.onErrorMessageReceived = function() {};
 
     this.init = function() {
 
@@ -14,13 +15,7 @@ function ImageReader(container) {
         var inputElement = document.createElement("input");
         inputElement.setAttribute("type", "file");
         inputElement.addEventListener("change", handleFiles, false);
-        container.appendChild(inputElement);
-
-        // var btnElement = document.createElement("button");
-        // btnElement.type = "button";
-        // btnElement.innerText = "Load";
-        // btnElement.addEventListener("click", handleFiles);
-        // container.appendChild(btnElement);        
+        container.appendChild(inputElement);    
 
         function handleFiles(ev) {
 
@@ -43,15 +38,15 @@ function ImageReader(container) {
 
                         var imageData = ctx.getImageData(0, 0, img.width, img.height);
 
-                        // if (ok) {
-                            that.onImageReceived(imageData, { ok: true });                            
-                        // } else {
-                        //     that.onImageReceived(imageData, { ok: false }, "message");                            
-                        // }
+                         if (canvas.width < 1024 && canvas.height < 1024) {
+                            that.onErrorMessageReceived("OK");  
+                            that.onImageReceived(imageData);  
+                            var sizes = new ImageSize(canvas.width,  canvas.height); 
+                            that.onSizeRecieved(sizes); 
 
-                        var sizes = new ImageSize(canvas.width,  canvas.height); 
-                        that.onSizeRecieved(sizes);   
-           
+                        } else {
+                            that.onErrorMessageReceived("Size is too big.");                            
+                        }           
                     };
 
                     img.src = event.target.result;
