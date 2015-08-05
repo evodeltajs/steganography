@@ -1,6 +1,6 @@
 "use strict";
 
-function MergeButton() {
+function MergeButton(container) {
 
 	var btnMerge = document.createElement("button");
 	btnMerge.type = "button";

@@ -14,6 +14,8 @@ var imageReaderFirst, imageReaderSecond, imageReaderMerged;
 var inputImageViewerFirst, inputImageViewerSecond, inputMergeView, outputUnmergeViewFirst, outputUnmergeViewSecond; 	
 var imageDataFirst, imageDataSecond;
 var imagesLoaded = 0;
+var imageLoadedFirst = 0;
+var imageLoadedSecond = 0;
 var btnMergeOn = true;
 var imageUploadFirst, imageUploadSecond;
 var sizesFirst, sizesSecond ;
@@ -45,8 +47,30 @@ function initImageUpload() {
 	initBtnMerge();
 
 	imageUploadFirst.onImageUpload = function(imageData) {
-		imageDataFirst = imageData;
-		onImagesLoaded();
+		imageLoadedFirst += 1;
+
+		if(imageLoadedFirst === 1){
+			imageDataFirst = imageData;
+			onImagesLoaded();
+
+		}else if(imageLoadedFirst ===2){
+			imageDataFirst = imageData;
+			imageLoadedFirst = 1;
+		}
+
+	};
+ 
+	imageUploadSecond.onImageUpload = function(imageData) {
+		imageLoadedSecond += 1;
+
+		if(imageLoadedSecond === 1){
+			imageDataSecond = imageData;
+			onImagesLoaded();
+			
+		}else if(imageLoadedSecond === 2){
+			imageDataSecond = imageData;
+			imageLoadedSecond = 1;
+		}
 	};
 
 	imageUploadFirst.onSizesRecieved = function(sizes) {
@@ -54,21 +78,17 @@ function initImageUpload() {
 		// console.log(sizesFirst);
 	}; 
 
-	imageUploadSecond.onImageUpload = function(imageData) {
-		imageDataSecond = imageData;
-		onImagesLoaded();
-	};
-
 	imageUploadSecond.onSizesRecieved = function(sizes) {
 		sizesSecond = sizes;
 		// console.log(sizesSecond);
 	};
 
 	function onImagesLoaded() {
-		imagesLoaded +=1;
-
+		imagesLoaded = imageLoadedFirst + imageLoadedSecond;
+		console.log(imagesLoaded);
 		if (imagesLoaded === 2) {
 			mergeBtn.activate();
+				imagesLoaded = 0;	
 		}			
 		else {
 			 	// console.log ("You need to input two files!");
@@ -82,9 +102,10 @@ function initImageUpload() {
 				var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
 				initMergeView(rezImg);
 
-				imagesLoaded = 0;	
+			
 
-				btnMergeOn = false;					 
+				btnMergeOn = false;	
+				mergeBtn.deactivate();				 
 			}			
 		});
 	}

@@ -49,6 +49,7 @@ function ImageUpload(container, className) {
 	this.initIMG = function() {
 
         var inputImageViewer;
+        var divViewer;
         var divReader =  document.createElement("div");
         divReader.className =  className;
 
@@ -59,8 +60,8 @@ function ImageUpload(container, className) {
 
         reader.onImageReceived = function(imageData) {           
 
-            var newUploadBtn;
-            var divViewer = document.createElement("div");
+           
+            divViewer = document.createElement("div");
             divViewer.className = "viewer";
             var imageDataThis = imageData;
 
@@ -75,29 +76,12 @@ function ImageUpload(container, className) {
                 imageContainer.removeChild(divReader);                   
                 imageContainer.appendChild(divViewer);
 
-                divViewer.addEventListener("mouseenter", function() {
-
-                    newUploadBtn = document.createElement("button");
-                    newUploadBtn.className = "uploadBtn";
-                    newUploadBtn.innerHTML = "New Upload";
-                    divViewer.appendChild(newUploadBtn);
-
-                    newUploadBtn.addEventListener("click", function() {
-
-                            imageContainer.removeChild(divViewer);                      
-                            imageContainer.appendChild(divReader);
-
-                        });
-
-                });
+                newUploadButton(divViewer,divReader);
 
                 that.onImageUpload(imageDataThis);
                 that.onSizesRecieved(sizes);
 
-                divViewer.addEventListener("mouseleave", function() {
-
-                    divViewer.removeChild(newUploadBtn);
-                });                
+                         
             };  
         };
 	};
@@ -107,11 +91,40 @@ function ImageUpload(container, className) {
         
         var divURL = document.createElement("div");
         divURL.className = "url-reader";
-
+        var divUrlViewer;
+        var inputImageUrlViewer;
         var urlReader = new UrlReader(divURL);
         urlReader.init();
 
         imageContainer.appendChild(divURL);
+
+        urlReader.onImageReceived = function(imageData) {
+
+            
+            var urlImageDataThis = imageData;
+            divUrlViewer = document.createElement("div");
+            divUrlViewer.className = "viewer";
+
+
+            urlReader.onSizeRecieved = function(size) {
+
+                var sizes = size;
+                inputImageUrlViewer = new ImageViewer(divUrlViewer,sizes);
+                inputImageUrlViewer.init();
+
+                urlImageDataThis = inputImageUrlViewer.setImage(urlImageDataThis);
+
+                imageContainer.removeChild(divURL);
+                imageContainer.appendChild(divUrlViewer);
+
+
+                newUploadButton(divUrlViewer,divURL);
+
+                that.onImageUpload(urlImageDataThis);
+                that.onSizesRecieved(sizes);
+
+            };
+        };       
     }; 
 
     //to clear the image-container of children
@@ -121,6 +134,31 @@ function ImageUpload(container, className) {
             imageContainer.removeChild(imageContainer.firstChild);
         }
     };
+
+    function newUploadButton (divViewer,divReader){
+            var newUploadBtn;
+
+            divViewer.addEventListener("mouseenter", function() {            
+                newUploadBtn = document.createElement("button");
+                newUploadBtn.className = "uploadBtn";
+                newUploadBtn.innerHTML = "New Upload";
+                divViewer.appendChild(newUploadBtn);
+
+                newUploadBtn.addEventListener("click", function() {
+
+                    imageContainer.removeChild(divViewer);
+                    that.clean();                      
+                    imageContainer.appendChild(divReader);
+                });
+
+            });
+
+            divViewer.addEventListener("mouseleave", function() {
+
+                divViewer.removeChild(newUploadBtn);
+            });   
+
+    }
 
 }
 
