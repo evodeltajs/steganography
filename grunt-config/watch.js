@@ -10,6 +10,7 @@ module.exports = {
 	htmlCss: {
 		files: [
 			"src/index.html",
+			"src/unmerge.html",
 			"src/img/**/*",
 			"src/css/**/*.css"
 		],
