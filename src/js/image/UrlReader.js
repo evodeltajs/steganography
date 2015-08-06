@@ -14,11 +14,12 @@ function UrlReader(container, urlLink) {
         var reader, canvas, ctx;
     	var urlField = document.createElement("input");
         var urlBtn = document.createElement("button");
-        urlBtn.innerHTML = "Load";
+        urlBtn.innerHTML = "Upload";
 
     	container.appendChild(urlField);
    		container.appendChild(urlBtn); 
         //https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png 
+        //http://1.bp.blogspot.com/-QfUis3-tLhQ/URKQq5esHvI/AAAAAAAAAC4/MxsDX4gsTEw/s1600/dynamic01.png
         urlBtn.addEventListener("click", function() {
             
             if(urlField.value !== "") {
