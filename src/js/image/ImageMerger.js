@@ -1,6 +1,5 @@
 "use strict";
  
-
 function ImageMerger(ImageData1, ImageData2) {
 
 	this.ImageResult1 = ImageData1;

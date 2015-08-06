@@ -75,26 +75,22 @@ var flagFirst = false;
 			if(imageLoadedFirst === 1) {
 				imageDataFirst = imageData;
 				onImagesLoaded();
-
-			}
-			else if(imageLoadedFirst ===2) {
+			} else if(imageLoadedFirst ===2) {
 				imageDataFirst = imageData;
 				imageLoadedFirst = 1;
 			}
 		};
 
 		imageUploadFirst.onSizesRecieved = function(sizes) {
-			
 			sizesFirst = sizes;
 		}; 
 
 		imageUploadFirst.onErrorMessageReceived = function(message) {
 
-			if(message ==="OK") {
+			if(message === "OK") {
 				ErrorBoxFirstImage.clear();
-			}
-			else {		 	 
-				ErrorBoxFirstImage.setMessage( message);
+			} else {		 	 
+				ErrorBoxFirstImage.setMessage(message);
 			}
 		};
 
@@ -104,17 +100,14 @@ var flagFirst = false;
 
 			if(imageLoadedSecond === 1) {
 				imageDataSecond = imageData;
-				onImagesLoaded();
-				
-			}
-			else if(imageLoadedSecond === 2) {
+				onImagesLoaded();				
+			} else if(imageLoadedSecond === 2) {
 				imageDataSecond = imageData;
 				imageLoadedSecond = 1;
 			}
 		};
 
 		imageUploadSecond.onSizesRecieved = function(sizes) {
-
 			sizesSecond = sizes;
 		};
 
@@ -122,8 +115,7 @@ var flagFirst = false;
 
 			if(message ==="OK") {
 				ErrorBoxSecondImage.clear();
-			}
-		 	else {
+			} else {
 				ErrorBoxSecondImage.setMessage(message);
 			}
 		};
@@ -132,11 +124,9 @@ var flagFirst = false;
 
 			if(message === "OK") {
 				ErrorBoxMergeButton.clear();
-			}
-			else {
+			} else {
 				ErrorBoxMergeButton.setMessage(message);
 			}
-
 		};
 
 		function onImagesLoaded() {
@@ -145,9 +135,8 @@ var flagFirst = false;
 			if (imagesLoaded === 2) {
 				mergeBtn.activate();
 				imagesLoaded = 0;	
-			}			
-			else {
-				 	// console.log ("You need to input two files!");
+			} else {
+			 	// console.log ("You need to input two files!");
 			} 
 		}
 
@@ -158,14 +147,12 @@ var flagFirst = false;
 				 	var boolMerge = mergeBtn.validate(sizesFirst, sizesSecond);	
 
 				 	if(boolMerge) {
-
 						var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
 						initMergeView(rezImg);			
 
 						btnMergeOn = false;	
 						mergeBtn.deactivate();	
-					}
-					else {
+					} else {
 						imagesLoaded = 0;
 					}			 
 				}			
@@ -189,6 +176,5 @@ var flagFirst = false;
 		var canvasMerged = inputMergeView.getCanvas();
 		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged); 
 	}
-
-	}
+}
 module.exports = MergeController;

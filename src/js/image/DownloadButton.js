@@ -4,7 +4,6 @@ function DownloadButton(id,canvas) {
 
 	var container = document.getElementById(id);	
 	var downloadBtn = document.createElement("a");
-
  
 	container.addEventListener("mouseover", function() {
     	
@@ -13,7 +12,6 @@ function DownloadButton(id,canvas) {
     	container.appendChild(downloadBtn);
 
     });
-
 
     downloadBtn.addEventListener("click", function() {
 

@@ -1,6 +1,6 @@
 "use strict";
 
-function ImageUnmerger (ImageData, size) {
+function ImageUnmerger(ImageData, size) {
 	this.inputImage= ImageData;
 	this.sizes = size.width* size.height * 4;
 
@@ -18,7 +18,6 @@ function ImageUnmerger (ImageData, size) {
 
 		}
  		 
-
 		for (i = 0; i < this.sizes; i++) {
 
 			temp[i] = this.inputImage.data[i];
@@ -28,7 +27,6 @@ function ImageUnmerger (ImageData, size) {
 			secondAux[i] = secondAux[i] * 64;
 
 		}		
-		 
 		return [firstAux,secondAux];
 	};
 }

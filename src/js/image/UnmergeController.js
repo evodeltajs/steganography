@@ -10,7 +10,7 @@ var ImageSize = require("./ImageSize");
 var ErrorBox = require("./ErrorBox");
 var UnmergeButton = require("./UnmergeButton");
 
-function UnmergeController(){
+function UnmergeController() {
 
 	var outputUnmergeViewFirst, outputUnmergeViewSecond;
 	var imageUploadSingle;
@@ -22,7 +22,7 @@ function UnmergeController(){
 
 	init();
 
-	function init(){
+	function init() {
 
 		var SingleImage = document.getElementById("SingleImageContainer");
 		var UnmergeButtonContainer = document.getElementById("btnUnmergeContainer");
@@ -34,9 +34,8 @@ function UnmergeController(){
 
 	}
 
-	function initImageUpload(singleImage){
+	function initImageUpload(singleImage) {
 		var imageUploadContainerSingle = document.createElement("div");
-
 
 		imageUploadContainerSingle.className = "image-upload";
 		imageUploadSingle = new ImageUpload(imageUploadContainerSingle, "single");
@@ -50,23 +49,19 @@ function UnmergeController(){
 
 		// var unmergeButton = document.createElement("button");	
 
-		imageUploadSingle.onImageUpload = function(imageData) {
-		 
+		imageUploadSingle.onImageUpload = function(imageData) {		 
 			imageTimesLoaded += 1;
 
 			if(imageTimesLoaded === 1) {
 				imageDataSingle = imageData;
 				onImagesLoaded();
-
-			}
-			else if(imageTimesLoaded ===2) {
+			} else if(imageTimesLoaded ===2) {
 				imageDataSingle = imageData;
 				imageTimesLoaded = 1;
 			}
 		};
 
 		imageUploadSingle.onSizesRecieved = function(sizes) {
-			
 			sizesSingle = sizes;
 		}; 
 
@@ -74,51 +69,44 @@ function UnmergeController(){
 
 			if(message ==="OK") {
 				ErrorBoxSingleImage.clear();
-			}
-			else {		 	 
+			} else {		 	 
 				ErrorBoxSingleImage.setMessage(message);
 			}
 		};
-
 	}
-
 
 	function onImagesLoaded() {
 		 
 			if (imageTimesLoaded === 1) {
 				unmergeButton.activate();
 				imageTimesLoaded = 0;	
-			}			
-			else {
-				 	// console.log ("You need to input two files!");
+			} else {
+			 	// console.log ("You need to input two files!");
 			} 
 	}
 
  
-	function initUnmergeButton(container){
-
+	function initUnmergeButton(container) {
+		
 		unmergeButton = new UnmergeButton(container);
 
-			container.addEventListener("click", function() {
-				if (btnUnmergeOn) {
-				 
-						initImageUnmerger(imageDataSingle, sizesSingle);
-						btnUnmergeOn = false;	
-						unmergeButton.deactivate();	
-					}
-				else {
-					imageTimesLoaded = 0;
-				}			 
-							
-			});
+		container.addEventListener("click", function() {
+			if (btnUnmergeOn) {		 
+					initImageUnmerger(imageDataSingle, sizesSingle);
+					btnUnmergeOn = false;	
+					unmergeButton.deactivate();	
+			} else {
+				imageTimesLoaded = 0;
+			}			 							
+		});
  	}
-
  
 	function initImageUnmerger(imageDataSingle, sizes) {
 
 		var imageUnmerger = new ImageUnmerger(imageDataSingle, sizes);
 		var unmergedArray = imageUnmerger.unmerge();
 		initUnmergeView(unmergedArray, sizes);
+	
 	}
 
 	function initUnmergeView(unmergedArray, sizesFirst) {
@@ -138,6 +126,7 @@ function UnmergeController(){
 		 
 	 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id, canvasUnmergedFirst);
 		var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id, canvasUnmergedSecond);
+	
 	}
 }
 

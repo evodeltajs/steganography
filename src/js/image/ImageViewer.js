@@ -17,7 +17,6 @@ function ImageViewer(container, sizes) {
 	};
 
 	this.setImage = function(imageData) {	
-
 		ctx.putImageData(imageData, 0, 0);	
 		return imageData;	
 	};
@@ -32,7 +31,6 @@ function ImageViewer(container, sizes) {
 	};
 
 	this.getCanvas = function() {
-
 		return canvasImageViewer;
 	};
 }		
