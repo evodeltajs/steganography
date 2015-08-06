@@ -5,18 +5,17 @@ var UnmergeController = require("./image/UnmergeController");
 
 var pathname = window.location.pathname;
  
-if(pathname === "/"){
+if(pathname === "/") {
 	startMergeController();
 }
-else if(pathname === "/unmerge.html"){
+else if(pathname === "/unmerge.html") {
 	startUnmergeController();
 }
 
-function startMergeController(){
-
+function startMergeController() {
 	var mergeController = new MergeController();
 }
 
-function startUnmergeController(){
+function startUnmergeController() {
 	var unmergeController = new UnmergeController();
 }

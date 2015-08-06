@@ -64,16 +64,15 @@ function ImageUpload(container, className) {
          var imageDataThis ;
         reader.onImageReceived = function(imageData) {           
 
-            if(flag){
+            if(flag) {
                 divViewer = document.createElement("div");
                 divViewer.className = "viewer";
                 imageDataThis = imageData; 
-
             }
   
         };
         reader.onSizeRecieved = function(size) {
-            if(flag){
+            if(flag) {
                 var sizes = size;
                 inputImageViewer = new ImageViewer(divViewer, sizes);
                 inputImageViewer.init();
@@ -90,13 +89,13 @@ function ImageUpload(container, className) {
             }            
         };
 
-        reader.onErrorMessageReceived = function(message){
+        reader.onErrorMessageReceived = function(message) {
             errorMessage = message;
 
-            if(errorMessage === "OK"){
-                flag = true;
-               
+            if(errorMessage === "OK") {
+                flag = true;   
             }
+
             that.onErrorMessageReceived(errorMessage);
 
         };
@@ -117,42 +116,41 @@ function ImageUpload(container, className) {
 
         urlReader.onImageReceived = function(imageData) {
 
-            if(flag){
-            urlImageDataThis = imageData;
-            divUrlViewer = document.createElement("div");
-            divUrlViewer.className = "viewer";
+            if(flag) {
+                urlImageDataThis = imageData;
+                divUrlViewer = document.createElement("div");
+                divUrlViewer.className = "viewer";
             }
 
         };    
 
         urlReader.onSizeRecieved = function(size) {
-            if(flag){
-            var sizes = size;
-            inputImageUrlViewer = new ImageViewer(divUrlViewer,sizes);
-            inputImageUrlViewer.init();
+            if(flag) {
+                var sizes = size;
+                inputImageUrlViewer = new ImageViewer(divUrlViewer,sizes);
+                inputImageUrlViewer.init();
 
-            urlImageDataThis = inputImageUrlViewer.setImage(urlImageDataThis);
+                urlImageDataThis = inputImageUrlViewer.setImage(urlImageDataThis);
 
-            imageContainer.removeChild(divURL);
-            imageContainer.appendChild(divUrlViewer);
+                imageContainer.removeChild(divURL);
+                imageContainer.appendChild(divUrlViewer);
 
 
-            newUploadButton(divUrlViewer,divURL);
+                newUploadButton(divUrlViewer,divURL);
 
-            that.onImageUpload(urlImageDataThis);
-            that.onSizesRecieved(sizes);
-
+                that.onImageUpload(urlImageDataThis);
+                that.onSizesRecieved(sizes);
             }
         };  
 
-        urlReader.onErrorMessageReceived = function(message){
+        urlReader.onErrorMessageReceived = function(message) {
             errorMessage = message;
 
-            if(errorMessage === "OK"){
+            if(errorMessage === "OK") {
                 flag = true;    
-                console.log(errorMessage);
-               
+                console.log(errorMessage); 
             }
+
             that.onErrorMessageReceived(errorMessage);
 
         }; 
@@ -160,37 +158,33 @@ function ImageUpload(container, className) {
 
     //to clear the image-container of children
     this.clean = function() {
-
         while(imageContainer.firstChild) {
             imageContainer.removeChild(imageContainer.firstChild);
         }
     };
 
-    function newUploadButton (divViewer,divReader){
-            var newUploadBtn;
+    function newUploadButton(divViewer, divReader) {
+        var newUploadBtn;
 
-            divViewer.addEventListener("mouseenter", function() {            
-                newUploadBtn = document.createElement("button");
-                newUploadBtn.className = "uploadBtn";
-                newUploadBtn.innerHTML = "New Upload";
-                divViewer.appendChild(newUploadBtn);
+        divViewer.addEventListener("mouseenter", function() {            
+            newUploadBtn = document.createElement("button");
+            newUploadBtn.className = "uploadBtn";
+            newUploadBtn.innerHTML = "New Upload";
+            divViewer.appendChild(newUploadBtn);
 
-                newUploadBtn.addEventListener("click", function() {
-
-                    imageContainer.removeChild(divViewer);
-                    that.clean();                      
-                    imageContainer.appendChild(divReader);
-                });
-
+            newUploadBtn.addEventListener("click", function() {
+                imageContainer.removeChild(divViewer);
+                that.clean();                      
+                imageContainer.appendChild(divReader);
             });
 
-            divViewer.addEventListener("mouseleave", function() {
+        });
 
-                divViewer.removeChild(newUploadBtn);
-            });   
+        divViewer.addEventListener("mouseleave", function() {
 
+            divViewer.removeChild(newUploadBtn);
+        });   
     }
-
 }
 
 module.exports = ImageUpload;

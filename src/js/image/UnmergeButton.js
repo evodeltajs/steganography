@@ -12,12 +12,10 @@ function UnmergeButton(container) {
 	this.onErrorMessageReceived = function () {}; 
 
 	this.activate = function() {
- 
 		btnUnmerge.disabled = false; 
 	};
 
 	this.deactivate = function() {
-
 		btnUnmerge.disabled = true;
 	};
 }

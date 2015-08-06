@@ -11,27 +11,24 @@ function MergeButton(container) {
 
 	this.onErrorMessageReceived = function () {}; 
 
-	this.activate = function() {
- 
+	this.activate = function() { 
 		btnMerge.disabled = false; 
 	};
 
 	this.deactivate = function() {
-
 		btnMerge.disabled = true;
 	};
 
-	this.validate = function (size1,size2) {
+	this.validate = function(size1, size2) {
 		
 		if(size1.width == size2.width && size2.width == size1.width) {
 		 	that.onErrorMessageReceived("OK");
 		 	return true;
-		}
-		else 
+		} else { 
 			that.onErrorMessageReceived("Not same sizes");
 			return false;
+		}
 	};
- 
 }
 
 module.exports = MergeButton;

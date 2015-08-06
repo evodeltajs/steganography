@@ -28,6 +28,7 @@ function UrlReader(container, urlLink) {
                 xhr.onreadystatechange = function() {
 
                     if(xhr.readyState === 4) {
+
                         if(xhr.status === 200) {
                          
                             canvas = document.createElement("canvas");  
@@ -52,8 +53,7 @@ function UrlReader(container, urlLink) {
 
                             img.crossOrigin = "Anonymous";  
                             img.src = url;
-                        }
-                        else {
+                        } else {
                             handleError();
                         }
                     }
@@ -63,14 +63,13 @@ function UrlReader(container, urlLink) {
                 xhr.open("GET", url, true);
                 xhr.send();
 
-            }
-			else {
+            } else {
 				alert("Input a link");
 			}
         });
     };
 
-    function handleError(){
+    function handleError() {
           that.onErrorMessageReceived("URL is invalid.");
     }
 }
