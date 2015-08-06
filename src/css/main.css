@@ -6,3 +6,125 @@
     margin: 80px;
     margin-top: 30px;
 }
+
+#unmerge{
+	float:right;
+}
+
+#refreshBtn{
+	position:relative; 	
+
+}
+
+.content{
+	width: 1024px;
+	height: 1100px;
+	background-color: green; 
+	margin:auto;
+}
+
+.content .top-container{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	height: 490px;
+
+}
+
+
+.top-container #FirstImage {
+	width: 480px;
+	height: 480px;
+	float:left;
+	background-color: #046;
+
+}
+
+.top-container #FirstImage .image-upload-first .button-container {
+	 margin-right: 192px;
+	margin-left: 192px; 
+
+}
+.top-container #FirstImage .image-upload-first .image-container {
+	margin: auto;
+	width: 480px;
+	display: block;
+	 
+}
+.top-container #FirstImage .image-upload-first .image-container .first-upload{
+	float:right;
+
+}
+
+
+/* .top-container #FirstImage .image-upload-first .viewer{
+	width: 480px;
+	
+} */
+
+
+.top-container #SecondImage{
+	width: 480px;
+	height: 480px;
+	float:right;
+	background-color: #046
+	
+
+
+}
+
+.mid-container{
+	height:50px;
+	margin-right: 100px;
+	margin-left: 100px;
+	background-color: #135
+}
+
+.mid-container #btnMergeContainer{
+	background-color: #148;
+	height: 50px;
+	width: 100px;
+ 
+	margin-right: 100px;
+	margin-left: 100px;
+	margin: auto;
+}
+
+.mid-container #btnMergeContainer .merge-button{
+	padding: 5px 10px 5px 10px;
+	width:100px;
+
+} 
+
+#btnMergeContainer .error-box{
+	font-style: oblique;
+	color: #ccc;
+
+}
+
+.content .bot-container{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	height: 490px;
+	background-color: #green;
+}
+
+
+.content #imageMergerFinal{
+ 	width: 480px;
+ 	height: 480px;
+	margin:auto;
+	background-color:#048;
+}
+.content #imageMergerFinal canvas{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    display: block;
+    width: auto;
+
+}
+

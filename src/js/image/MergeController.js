@@ -46,8 +46,8 @@ var flagFirst = false;
 		imageUploadContainerFirst.className = "image-upload-first";
 		imageUploadContainerSecond.className = "image-upload-second";
 
-		imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "firstUpload" ); 
-		imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "secondUpload");
+		imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "first-upload" ); 
+		imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "second-upload");
 
 		firstImageContainer.appendChild(imageUploadContainerFirst);
 		secondImageContainer.appendChild(imageUploadContainerSecond);
