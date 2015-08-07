@@ -51,34 +51,186 @@
 	margin:auto;
 }
 
-.content .top-container {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	height: 490px;
-}
 
-.top-container #SingleImageContainer {
+/*ImageUpload*/
+.content .top-container{
+	position: absolute;
+	/*display: inline-block;*/
+	width:1024px;
+	height: 500px;
+}
+.content .top-container #SingleImageContainer {
+	position: absolute;
+	background-color: blue;
+	right:26%;
 	width: 480px;
 	height: 480px;
-	float:left;
-	background-color: #046;
+	
 }
 
-.top-container #SingleImageContainer .image-upload {
-	height:432px;
+.content .top-container #SingleImageContainer .image-upload{
+	height:480px;
 }
 
-.top-container #SingleImageContainer .error-box {
-	height:48px;
+.content .top-container #SingleImageContainer .image-upload .error-box {
+	width:480px;
+	height:50px;
 	margin-left:auto;
 	margin-right:auto;
 	font-size:30px;
-	color:red;
-	text-align: center;  
+	color:white;
+	text-align: center;
 }
-
-.top-container #SingleImageContainer .image-upload .button-container {
+.content .top-container #SingleImageContainer .image-upload .button-container {
  	height: 48px;
 }
 
+.content .top-container #SingleImageContainer .image-upload .button-container .image-btn {
+ 	font-size: 30px;
+ 	width: 240px;
+ 	height: 48px; 
+	float: left;
+}
+
+.content .top-container #SingleImageContainer .image-upload .button-container .url-btn {
+ 	font-size: 30px;
+ 	width: 240px;
+ 	height: 48px; 
+ 	float: right;
+}
+
+
+.content .top-container #SingleImageContainer .image-upload .image-container {
+	width:480px;
+	height: 432px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .single input{
+	
+	padding-left: 32%;
+	width: 170px;
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .url-reader {
+	width: 245px;
+	/*background-color: #046;*/
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container input {
+ 	width: 248px;
+ 	margin-top: 170px;
+ 	font-size: 25px;
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .url-reader button {
+	font-size: 25px;
+	width:252px;
+	height: 35px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .viewer {
+	
+	width: 300px;
+	height: 300px;
+	/*padding-left: 20%;*/
+    /*padding-right: 300%;*/
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    display: block; 
+    padding-top: 90px;
+    	 
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .viewer .canvas {
+	/*margin-right: auto;*/
+    /*display: block;*/
+    width: auto;
+    padding-top: 90px;
+
+}
+
+.content .top-container #SingleImageContainer .image-upload .image-container .viewer .uploadBtn {
+	position: absolute;
+	top: 50%;
+	left: calc(40%);
+}
+
+/*unmerge-button*/
+.content .mid-container{
+	padding-top: 52%;
+	height:98px;
+	width:1024px;
+}
+.content .mid-container #btnUnmergeContainer{
+	width:1024px;
+}
+
+.content .mid-container #btnUnmergeContainer .unmerge-button{
+	margin-left: 44%;
+	font-size: 30px;
+	width:140px;
+	height: 50px;
+	
+}
+
+.content .bot-container{
+	
+	width:1024px;
+	height: 600px;
+}
+
+.content .bot-container #imageUnmergeFirst{
+	width:480px;
+	height:480px;
+	float:left;
+	overflow: auto;
+
+}
+.content .bot-container #imageUnmergeFirst canvas{
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    display: block;
+    width: 300px;
+    padding-top: 90px;
+	
+}
+
+.content .bot-container #imageUnmergeSecond{
+	width:480px;
+	height:480px;
+	float:right;
+	overflow: auto;
+}
+
+.content .bot-container #imageUnmergeSecond canvas{
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    display: block;
+    width: auto;
+    padding-top: 90px;
+}
+.bot-container #imageUnmergeFirst .download-btn{
+	position: absolute;
+	top: 130%;
+	left: calc(33%);
+} 
+
+.content .bot-container #imageUnmergeSecond .download-btn{
+	position: absolute;
+	top: 130%;
+	left: calc(63%);
+} 
