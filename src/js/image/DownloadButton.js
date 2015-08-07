@@ -7,7 +7,7 @@ function DownloadButton(id,canvas) {
  
 	container.addEventListener("mouseover", function() {
     	
-    	downloadBtn.className = "downloadBtn";
+    	downloadBtn.className = "download-btn";
     	downloadBtn.innerHTML = "Download";
     	container.appendChild(downloadBtn);
 
