@@ -1,13 +1,25 @@
+body {
+<<<<<<< HEAD
+    /*background-image: url(http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg);*/
+}
+
 .nav-bar {
-	background-color: rgb(192,147,63);
+	background-color: #a94444;
+=======
+    background-image: url(http://www.freecreatives.com/wp-content/uploads/2015/03/6809725-simple-vintage-backgrounds.jpg);
+    background-color: #cccccc;
+}
+.nav-bar {
+	background-color: #BB3333;
+>>>>>>> dfa5af2256e5d310e328b3d3a5dd928ef9aa3db0
 	width: auto;
 	text-align: center;
 	height: 100px;
 	position: relative;
-	height:100px;
+ 
     margin: 80px;
     margin-top: 36px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -23,7 +35,6 @@
 	font-size: 30px;
 }
 
-
 .nav-bar #title {
 	display:inline-block;
 	width: 250px;
@@ -31,6 +42,7 @@
 	height: 60px;
 	margin-top: 36px;
 	font-size:200%;
+	color: white;
 }
 
 .nav-bar #unmerge {
@@ -48,7 +60,11 @@
 .content {
 	width: 1024px;
 	height: 1100px;
-	background-color: green; 
+<<<<<<< HEAD
+	background-color: #a94444; 
+=======
+	background-color: #078; 
+>>>>>>> dfa5af2256e5d310e328b3d3a5dd928ef9aa3db0
 	margin:auto;
 }
 
@@ -65,7 +81,11 @@
 	right:51.2%;
 	width: 480px;
 	height: 480px;
-	background-color: #046;
+<<<<<<< HEAD
+	background-color: lightgrey;
+=======
+	/*background-color: #046;*/
+>>>>>>> dfa5af2256e5d310e328b3d3a5dd928ef9aa3db0
 }
 
 .top-container #FirstImage .image-upload-first {
@@ -77,12 +97,8 @@
 	margin-left:auto;
 	margin-right:auto;
 	font-size:30px;
-	color:red;
-<<<<<<< HEAD
+	color:white;
 	text-align: center;  
-=======
-	text-align: center;
->>>>>>> origin/master
 }
 .top-container #FirstImage .image-upload-first .button-container {
  	height: 48px;
@@ -119,7 +135,7 @@
 .top-container #FirstImage .image-upload-first .image-container .first-upload input {
 	margin-top: 170px;
 	width: 175px;
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	font-size: 30px;
 	margin-left: auto;
  	margin-right: auto;
@@ -127,7 +143,7 @@
  
 .top-container #FirstImage .image-upload-first .image-container .url-reader {
 	width: 245px;
-	background-color: #046;
+	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
@@ -153,10 +169,6 @@
 }
 
 .top-container #FirstImage .image-upload-first .image-container .viewer canvas {
-<<<<<<< HEAD
-  	display: block;
-    margin: 0 auto; 
-=======
 
 	padding-left: 0;
     padding-right: 0;
@@ -168,7 +180,6 @@
     padding-top: 90px;
     /*height: 384px;*/
 
->>>>>>> origin/master
 }
 
 .top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn {
@@ -178,21 +189,17 @@
 }
 
 /*SECOND IMAGE*/
-<<<<<<< HEAD
 .top-container #SecondImage {
-	width: 480px;
-	height: 480px;
-	float:right;
-	background-color: #046;
-=======
-.top-container #SecondImage{
 	position: absolute;
 	left:51.2%;
 	width: 480px;
 	height: 480px;
 	/*float:right;*/
-	background-color: #046
->>>>>>> origin/master
+<<<<<<< HEAD
+	background-color: lightgrey;
+=======
+	/*background-color: #046;*/
+>>>>>>> dfa5af2256e5d310e328b3d3a5dd928ef9aa3db0
 }
 
 .top-container #SecondImage .image-upload-second {
@@ -204,19 +211,14 @@
 	margin-left:auto;
 	margin-right:auto;
 	font-size:30px;
-	color:red;
+	color:white;
 	text-align: center;
 }
 
 .top-container #SecondImage .image-upload-second .button-container {
  	height: 48px;
 }
-<<<<<<< HEAD
-
 .top-container #SecondImage .image-upload-second .button-container .image-btn {
-=======
-.top-container #SecondImage .image-upload-second .button-container .image-btn{
->>>>>>> origin/master
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
@@ -243,10 +245,10 @@
  	margin-right: auto; 	
 }
 
-.top-container #SecondImage .image-upload-second .image-container .first-upload input {
+.top-container #SecondImage .image-upload-second .image-container .second-upload input {
 	margin-top: 170px;
 	width: 175px;
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	font-size: 30px;
 	margin-left: auto;
  	margin-right: auto;
@@ -254,16 +256,12 @@
  
 .top-container #SecondImage .image-upload-second .image-container .url-reader {
 	width: 245px;
-	background-color: #046;
+	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
-<<<<<<< HEAD
 
 .top-container #SecondImage .image-upload-second .image-container input {
-=======
- .top-container #SecondImage .image-upload-second .image-container input{
->>>>>>> origin/master
  	width: 248px;
  	margin-top: 170px;
  	font-size: 25px;
@@ -284,10 +282,6 @@
 }
 
 .top-container #SecondImage .image-upload-second .image-container .viewer canvas {
-<<<<<<< HEAD
-  	display: block;
-    margin: 0 auto;
-=======
   	padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -296,7 +290,6 @@
     display: block;
     width: auto;
     padding-top: 90px;
->>>>>>> origin/master
 }
 
 .top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn {
@@ -305,27 +298,20 @@
 	left: calc(40%);
 }
 
-<<<<<<< HEAD
-/*MergeContainer*/
-.mid-container {
-	height:98px;
-=======
 /*Merge Button*/
-
-.mid-container{
+.mid-container {
 	/*position: absolute;
 	width: auto;
 	
 	left:41.5%;
->>>>>>> origin/master
 	margin-right: 100px;
 	margin-left: 100px;*/
-	background-color: #135;
+	/*background-color: #135;*/
 	height:98px;
 }
 
 .mid-container #btnMergeContainer {
-	background-color: #148;
+	/*background-color: #148;*/
 	height: 50px;
 	width: 120px;
  	margin: auto;
@@ -345,23 +331,12 @@
 	width: 200px;
 	margin-left:-34%;
 	font-size:30px;
-	color:red;
+	color:white;
 	text-align: center;
 }
 
-<<<<<<< HEAD
-.content .bot-container {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	height: 490px;
-	background-color: #green;
-}
-
-.content #imageMergerFinal {
-=======
 /*MergeContainer*/
-.content .bot-container{
+.content .bot-container {
 	/*overflow: auto;*/
 	position: absolute;
 	height: auto;
@@ -370,15 +345,13 @@
 	
 }
 
-
-.content #imageMergerFinal{
+.content #imageMergerFinal {
  	/*position: absolute;*/
  	overflow: auto;
->>>>>>> origin/master
  	width: 480px;
  	height: 480px;
 	margin:auto;
-	background-color:#048;
+	/*background-color:#048;*/
 	overflow: auto;
 }
 
@@ -389,17 +362,7 @@
     margin-right: auto;
     overflow: auto;
     display: block;
-<<<<<<< HEAD
     width: auto; 
-}
-
-.bot-container #imageMergerFinal .downloadBtn {
-	position: absolute;
-	top: 130%;
-	left: calc(49%);
-} 
-=======
-    width: auto;
     padding-top: 90px;
     
 }
@@ -407,9 +370,8 @@
 .bot-container #imageMergerFinal .download-btn{
 	position: absolute;
 	top: 44%;
-	left: calc(47%);
+	left: calc(46%);
 } 
-
 .download-btn {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -424,4 +386,3 @@
     padding: 8px 12px;
     text-decoration: none;
 }
->>>>>>> origin/master
