@@ -1,5 +1,9 @@
+body {
+    background-image: url(http://www.freecreatives.com/wp-content/uploads/2015/03/6809725-simple-vintage-backgrounds.jpg);
+    background-color: #cccccc;
+}
 .nav-bar{
-	background-color: rgb(192,147,63);
+	background-color: #BB3333;
 	width: auto;
 	text-align: center;
 	height: 100px;
@@ -7,7 +11,7 @@
 	height:100px;
     margin: 80px;
     margin-top: 36px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -51,7 +55,7 @@
 .content{
 	width: 1024px;
 	height: 1100px;
-	background-color: green; 
+	background-color: #078; 
 	margin:auto;
 }
 
@@ -69,7 +73,7 @@
 	right:51.2%;
 	width: 480px;
 	height: 480px;
-	background-color: #046;
+	/*background-color: #046;*/
 
 }
 
@@ -117,7 +121,7 @@
 .top-container #FirstImage .image-upload-first .image-container .first-upload input{
 	margin-top: 170px;
 	width: 175px;
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	font-size: 30px;
 	margin-left: auto;
  	margin-right: auto;
@@ -126,7 +130,7 @@
  .top-container #FirstImage .image-upload-first .image-container .url-reader{
 	
 	width: 245px;
-	background-color: #046;
+	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
@@ -179,7 +183,7 @@
 	width: 480px;
 	height: 480px;
 	/*float:right;*/
-	background-color: #046
+	/*background-color: #046;*/
 }
 
 .top-container #SecondImage .image-upload-second{
@@ -228,7 +232,7 @@
 .top-container #SecondImage .image-upload-second .image-container .first-upload input{
 	margin-top: 170px;
 	width: 175px;
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	font-size: 30px;
 	margin-left: auto;
  	margin-right: auto;
@@ -237,7 +241,7 @@
  .top-container #SecondImage .image-upload-second .image-container .url-reader{
 	
 	width: 245px;
-	background-color: #046;
+	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
@@ -288,12 +292,12 @@
 	left:41.5%;
 	margin-right: 100px;
 	margin-left: 100px;*/
-	background-color: #135;
+	/*background-color: #135;*/
 	height:98px;
 }
 
 .mid-container #btnMergeContainer{
-	background-color: #148;
+	/*background-color: #148;*/
 	height: 50px;
 	width: 120px;
  	margin: auto;
@@ -335,7 +339,7 @@
  	width: 480px;
  	height: 480px;
 	margin:auto;
-	background-color:#048;
+	/*background-color:#048;*/
 }
 .content #imageMergerFinal canvas{
     padding-left: 0;
@@ -352,7 +356,7 @@
 .bot-container #imageMergerFinal .download-btn{
 	position: absolute;
 	top: 44%;
-	left: calc(47%);
+	left: calc(46%);
 } 
 
 .download-btn {
