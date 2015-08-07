@@ -2,7 +2,7 @@ body {
     background-image: url(http://www.freecreatives.com/wp-content/uploads/2015/03/6809725-simple-vintage-backgrounds.jpg);
     background-color: #cccccc;
 }
-.nav-bar{
+.nav-bar {
 	background-color: #BB3333;
 	width: auto;
 	text-align: center;
@@ -15,56 +15,52 @@ body {
     text-align: center;
 }
 
-.nav-bar #refreshBtn{
+.nav-bar #refreshBtn {
 	float:left;
 	width:122px;
 	height: 60px;
 	margin-top: 36px;
-	margin-left: 20px;
-	
+	margin-left: 20px;	
 }
 
-.nav-bar #refreshBtn .refresh-button{
+.nav-bar #refreshBtn .refresh-button {
 	font-size: 30px;
 }
 
 
-.nav-bar #title{
+.nav-bar #title {
 	display:inline-block;
 	width: 250px;
 	margin: 0 auto;
 	height: 60px;
 	margin-top: 36px;
 	font-size:200%;
-
 }
 
-.nav-bar #unmerge{
+.nav-bar #unmerge {
 	width:140px;
 	height: 60px;
 	float:right;
 	margin-top: 36px;
-	margin-right: 20px;
-	
+	margin-right: 20px;	
 }
 
-.nav-bar #unmerge #unmergebtn{
+.nav-bar #unmerge #unmergebtn {
 	font-size: 30px;
 }
 
-.content{
+.content {
 	width: 1024px;
 	height: 1100px;
 	background-color: #078; 
 	margin:auto;
 }
 
-.content .top-container{
+.content .top-container {
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 10px;
 	height: 490px;
-
 }
 
 /*FIRST IMAGE*/
@@ -74,31 +70,32 @@ body {
 	width: 480px;
 	height: 480px;
 	/*background-color: #046;*/
-
 }
 
-.top-container #FirstImage .image-upload-first{
+.top-container #FirstImage .image-upload-first {
 	height:432px;
 }
-.top-container #FirstImage .error-box{
+
+.top-container #FirstImage .error-box {
 	height:48px;
 	margin-left:auto;
 	margin-right:auto;
 	font-size:30px;
 	color:red;
-	text-align: center;
+	text-align: center;  
 }
 .top-container #FirstImage .image-upload-first .button-container {
  	height: 48px;
 }
-.top-container #FirstImage .image-upload-first .button-container .image-btn{
+
+.top-container #FirstImage .image-upload-first .button-container .image-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
 	float: left;
 }
 
-.top-container #FirstImage .image-upload-first .button-container .url-btn{
+.top-container #FirstImage .image-upload-first .button-container .url-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
@@ -111,14 +108,15 @@ body {
 	width: 480px;	 
 	overflow: auto;
 }
-.top-container #FirstImage .image-upload-first .image-container .first-upload{
+
+.top-container #FirstImage .image-upload-first .image-container .first-upload {
 	width:175px;
 	height: 20px;
  	margin-left: auto;
  	margin-right: auto;
- 	
 }
-.top-container #FirstImage .image-upload-first .image-container .first-upload input{
+
+.top-container #FirstImage .image-upload-first .image-container .first-upload input {
 	margin-top: 170px;
 	width: 175px;
 	/*background-color: #AAA;*/
@@ -127,21 +125,20 @@ body {
  	margin-right: auto;
 }
  
- .top-container #FirstImage .image-upload-first .image-container .url-reader{
-	
+.top-container #FirstImage .image-upload-first .image-container .url-reader {
 	width: 245px;
 	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
- .top-container #FirstImage .image-upload-first .image-container input{
- 	width: 248px;
 
+.top-container #FirstImage .image-upload-first .image-container input {
+ 	width: 248px;
  	margin-top: 170px;
  	font-size: 25px;
 }
 
- .top-container #FirstImage .image-upload-first .image-container .url-reader button{
+.top-container #FirstImage .image-upload-first .image-container .url-reader button {
 	font-size: 25px;
 	width:252px;
 	height: 35px;
@@ -149,7 +146,6 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-
 
 .top-container #FirstImage .image-upload-first .image-container .viewer {
 	height:384px; 
@@ -170,14 +166,14 @@ body {
 
 }
 
-.top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn{
+.top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn {
 	position: absolute;
 	top: 50%;
 	left: calc(40%);
 }
 
 /*SECOND IMAGE*/
-.top-container #SecondImage{
+.top-container #SecondImage {
 	position: absolute;
 	left:51.2%;
 	width: 480px;
@@ -186,11 +182,11 @@ body {
 	/*background-color: #046;*/
 }
 
-.top-container #SecondImage .image-upload-second{
+.top-container #SecondImage .image-upload-second {
 	height:432px;
 }
 
-.top-container #SecondImage .error-box{
+.top-container #SecondImage .error-box {
 	height:48px;
 	margin-left:auto;
 	margin-right:auto;
@@ -202,14 +198,14 @@ body {
 .top-container #SecondImage .image-upload-second .button-container {
  	height: 48px;
 }
-.top-container #SecondImage .image-upload-second .button-container .image-btn{
+.top-container #SecondImage .image-upload-second .button-container .image-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
 	float: left;
 }
 
-.top-container #SecondImage .image-upload-second .button-container .url-btn{
+.top-container #SecondImage .image-upload-second .button-container .url-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
@@ -222,14 +218,14 @@ body {
 	overflow: auto;
 }
 
-.top-container #SecondImage .image-upload-second .image-container .second-upload{
+.top-container #SecondImage .image-upload-second .image-container .second-upload {
 	width:175px;
 	height: 20px;
  	margin-left: auto;
- 	margin-right: auto;
- 	
+ 	margin-right: auto; 	
 }
-.top-container #SecondImage .image-upload-second .image-container .first-upload input{
+
+.top-container #SecondImage .image-upload-second .image-container .first-upload input {
 	margin-top: 170px;
 	width: 175px;
 	/*background-color: #AAA;*/
@@ -238,20 +234,20 @@ body {
  	margin-right: auto;
 }
  
- .top-container #SecondImage .image-upload-second .image-container .url-reader{
-	
+.top-container #SecondImage .image-upload-second .image-container .url-reader {
 	width: 245px;
 	/*background-color: #046;*/
 	margin-left: auto;
  	margin-right: auto;
 }
- .top-container #SecondImage .image-upload-second .image-container input{
+
+.top-container #SecondImage .image-upload-second .image-container input {
  	width: 248px;
  	margin-top: 170px;
  	font-size: 25px;
 }
 
- .top-container #SecondImage .image-upload-second .image-container .url-reader button{
+.top-container #SecondImage .image-upload-second .image-container .url-reader button {
 	font-size: 25px;
 	width:252px;
 	height: 35px;
@@ -259,7 +255,6 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-
 
 .top-container #SecondImage .image-upload-second .image-container .viewer {
 	height:384px; 
@@ -277,15 +272,14 @@ body {
     padding-top: 90px;
 }
 
-.top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn{
+.top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn {
 	position: absolute;
 	top: 50%;
 	left: calc(40%);
 }
 
 /*Merge Button*/
-
-.mid-container{
+.mid-container {
 	/*position: absolute;
 	width: auto;
 	
@@ -296,22 +290,21 @@ body {
 	height:98px;
 }
 
-.mid-container #btnMergeContainer{
+.mid-container #btnMergeContainer {
 	/*background-color: #148;*/
 	height: 50px;
 	width: 120px;
  	margin: auto;
 }
 
-.mid-container #btnMergeContainer .merge-button{
+.mid-container #btnMergeContainer .merge-button {
 	width:120px;
 	height: 50px;
 	font-size: 30px;
 	margin:auto;
-
 } 
 
-.mid-container #btnMergeContainer .error-box{
+.mid-container #btnMergeContainer .error-box {
 	font-style: oblique;
 	color: #ccc;
 	height:48px;
@@ -323,7 +316,7 @@ body {
 }
 
 /*MergeContainer*/
-.content .bot-container{
+.content .bot-container {
 	/*overflow: auto;*/
 	position: absolute;
 	height: auto;
@@ -332,23 +325,24 @@ body {
 	
 }
 
-
-.content #imageMergerFinal{
+.content #imageMergerFinal {
  	/*position: absolute;*/
  	overflow: auto;
  	width: 480px;
  	height: 480px;
 	margin:auto;
 	/*background-color:#048;*/
+	overflow: auto;
 }
-.content #imageMergerFinal canvas{
+
+.content #imageMergerFinal canvas {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     overflow: auto;
     display: block;
-    width: auto;
+    width: auto; 
     padding-top: 90px;
     
 }
@@ -358,7 +352,6 @@ body {
 	top: 44%;
 	left: calc(46%);
 } 
-
 .download-btn {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;

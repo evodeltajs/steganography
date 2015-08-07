@@ -1,0 +1,84 @@
+.nav-bar {
+	background-color: rgb(192,147,63);
+	width: auto;
+	text-align: center;
+	height: 100px;
+	position: relative;
+	height:100px;
+    margin: 80px;
+    margin-top: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.nav-bar #refreshBtn {
+	float:left;
+	width:122px;
+	height: 60px;
+	margin-top: 36px;
+	margin-left: 20px;	
+}
+
+.nav-bar #refreshBtn .refresh-button {
+	font-size: 30px;
+}
+
+.nav-bar #title {
+	display:inline-block;
+	width: 250px;
+	margin: 0 auto;
+	height: 60px;
+	margin-top: 36px;
+	font-size:200%;
+}
+
+.nav-bar #merge {
+	width:140px;
+	height: 60px;
+	float:right;
+	margin-top: 36px;
+	margin-right: 20px;	
+}
+
+.nav-bar #merge #mergebtn {
+	font-size: 30px;
+}
+
+.content {
+	width: 1024px;
+	height: 1100px;
+	background-color: green; 
+	margin:auto;
+}
+
+.content .top-container {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	height: 490px;
+}
+
+.top-container #SingleImageContainer {
+	width: 480px;
+	height: 480px;
+	float:left;
+	background-color: #046;
+}
+
+.top-container #SingleImageContainer .image-upload {
+	height:432px;
+}
+
+.top-container #SingleImageContainer .error-box {
+	height:48px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:30px;
+	color:red;
+	text-align: center;  
+}
+
+.top-container #SingleImageContainer .image-upload .button-container {
+ 	height: 48px;
+}
+
