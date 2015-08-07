@@ -1,4 +1,4 @@
-.nav-bar{
+.nav-bar {
 	background-color: rgb(192,147,63);
 	width: auto;
 	text-align: center;
@@ -11,56 +11,52 @@
     text-align: center;
 }
 
-.nav-bar #refreshBtn{
+.nav-bar #refreshBtn {
 	float:left;
 	width:122px;
 	height: 60px;
 	margin-top: 36px;
-	margin-left: 20px;
-	
+	margin-left: 20px;	
 }
 
-.nav-bar #refreshBtn .refresh-button{
+.nav-bar #refreshBtn .refresh-button {
 	font-size: 30px;
 }
 
 
-.nav-bar #title{
+.nav-bar #title {
 	display:inline-block;
 	width: 250px;
 	margin: 0 auto;
 	height: 60px;
 	margin-top: 36px;
 	font-size:200%;
-
 }
 
-.nav-bar #unmerge{
+.nav-bar #unmerge {
 	width:140px;
 	height: 60px;
 	float:right;
 	margin-top: 36px;
-	margin-right: 20px;
-	
+	margin-right: 20px;	
 }
 
-.nav-bar #unmerge #unmergebtn{
+.nav-bar #unmerge #unmergebtn {
 	font-size: 30px;
 }
 
-.content{
+.content {
 	width: 1024px;
 	height: 1100px;
 	background-color: green; 
 	margin:auto;
 }
 
-.content .top-container{
+.content .top-container {
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 10px;
 	height: 490px;
-
 }
 
 /*FIRST IMAGE*/
@@ -69,35 +65,33 @@
 	height: 480px;
 	float:left;
 	background-color: #046;
-
 }
 
-.top-container #FirstImage .image-upload-first{
+.top-container #FirstImage .image-upload-first {
 	height:432px;
-
-
 }
-.top-container #FirstImage .error-box{
+
+.top-container #FirstImage .error-box {
 	height:48px;
 	margin-left:auto;
 	margin-right:auto;
 	font-size:30px;
 	color:red;
-	text-align: center;
-  
+	text-align: center;  
 }
 
 .top-container #FirstImage .image-upload-first .button-container {
  	height: 48px;
 }
-.top-container #FirstImage .image-upload-first .button-container .image-btn{
+
+.top-container #FirstImage .image-upload-first .button-container .image-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
 	float: left;
 }
 
-.top-container #FirstImage .image-upload-first .button-container .url-btn{
+.top-container #FirstImage .image-upload-first .button-container .url-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
@@ -110,15 +104,15 @@
 	width: 480px;	 
 	overflow: auto;
 }
-.top-container #FirstImage .image-upload-first .image-container .first-upload{
+
+.top-container #FirstImage .image-upload-first .image-container .first-upload {
 	width:175px;
 	height: 20px;
- 
  	margin-left: auto;
  	margin-right: auto;
- 	
 }
-.top-container #FirstImage .image-upload-first .image-container .first-upload input{
+
+.top-container #FirstImage .image-upload-first .image-container .first-upload input {
 	margin-top: 170px;
 	width: 175px;
 	background-color: #AAA;
@@ -127,21 +121,20 @@
  	margin-right: auto;
 }
  
- .top-container #FirstImage .image-upload-first .image-container .url-reader{
-	
+.top-container #FirstImage .image-upload-first .image-container .url-reader {
 	width: 245px;
 	background-color: #046;
 	margin-left: auto;
  	margin-right: auto;
 }
- .top-container #FirstImage .image-upload-first .image-container input{
- 	width: 248px;
 
+.top-container #FirstImage .image-upload-first .image-container input {
+ 	width: 248px;
  	margin-top: 170px;
  	font-size: 25px;
 }
 
- .top-container #FirstImage .image-upload-first .image-container .url-reader button{
+.top-container #FirstImage .image-upload-first .image-container .url-reader button {
 	font-size: 25px;
 	width:252px;
 	height: 35px;
@@ -150,7 +143,6 @@
 	margin-right: auto;
 }
 
-
 .top-container #FirstImage .image-upload-first .image-container .viewer {
 	height:384px; 
 	width: 480px;	 
@@ -158,29 +150,28 @@
 
 .top-container #FirstImage .image-upload-first .image-container .viewer canvas {
   	display: block;
-    margin: 0 auto;
- 
+    margin: 0 auto; 
 }
 
-.top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn{
+.top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn {
 	position: absolute;
 	top: 45%;
 	left: calc(34%);
 }
 
 /*SECOND IMAGE*/
-.top-container #SecondImage{
+.top-container #SecondImage {
 	width: 480px;
 	height: 480px;
 	float:right;
-	background-color: #046
+	background-color: #046;
 }
 
-.top-container #SecondImage .image-upload-second{
+.top-container #SecondImage .image-upload-second {
 	height:432px;
 }
 
-.top-container #SecondImage .error-box{
+.top-container #SecondImage .error-box {
 	height:48px;
 	margin-left:auto;
 	margin-right:auto;
@@ -193,14 +184,14 @@
  	height: 48px;
 }
 
-.top-container #SecondImage .image-upload-second .button-container .image-btn{
+.top-container #SecondImage .image-upload-second .button-container .image-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
 	float: left;
 }
 
-.top-container #SecondImage .image-upload-second .button-container .url-btn{
+.top-container #SecondImage .image-upload-second .button-container .url-btn {
  	font-size: 30px;
  	width: 240px;
  	height: 48px; 
@@ -213,15 +204,14 @@
 	overflow: auto;
 }
 
-.top-container #SecondImage .image-upload-second .image-container .second-upload{
+.top-container #SecondImage .image-upload-second .image-container .second-upload {
 	width:175px;
 	height: 20px;
- 
  	margin-left: auto;
- 	margin-right: auto;
- 	
+ 	margin-right: auto; 	
 }
-.top-container #SecondImage .image-upload-second .image-container .first-upload input{
+
+.top-container #SecondImage .image-upload-second .image-container .first-upload input {
 	margin-top: 170px;
 	width: 175px;
 	background-color: #AAA;
@@ -230,21 +220,20 @@
  	margin-right: auto;
 }
  
- .top-container #SecondImage .image-upload-second .image-container .url-reader{
-	
+.top-container #SecondImage .image-upload-second .image-container .url-reader {
 	width: 245px;
 	background-color: #046;
 	margin-left: auto;
  	margin-right: auto;
 }
- .top-container #SecondImage .image-upload-second .image-container input{
- 	width: 248px;
 
+.top-container #SecondImage .image-upload-second .image-container input {
+ 	width: 248px;
  	margin-top: 170px;
  	font-size: 25px;
 }
 
- .top-container #SecondImage .image-upload-second .image-container .url-reader button{
+.top-container #SecondImage .image-upload-second .image-container .url-reader button {
 	font-size: 25px;
 	width:252px;
 	height: 35px;
@@ -252,7 +241,6 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-
 
 .top-container #SecondImage .image-upload-second .image-container .viewer {
 	height:384px; 
@@ -262,40 +250,37 @@
 .top-container #SecondImage .image-upload-second .image-container .viewer canvas {
   	display: block;
     margin: 0 auto;
- 
 }
 
-.top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn{
+.top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn {
 	position: absolute;
 	top: 45%;
 	left: calc(61%);
 }
 
 /*MergeContainer*/
-
-.mid-container{
+.mid-container {
 	height:98px;
 	margin-right: 100px;
 	margin-left: 100px;
 	background-color: #135
 }
 
-.mid-container #btnMergeContainer{
+.mid-container #btnMergeContainer {
 	background-color: #148;
 	height: 50px;
 	width: 120px;
  	margin: auto;
 }
 
-.mid-container #btnMergeContainer .merge-button{
+.mid-container #btnMergeContainer .merge-button {
 	width:120px;
 	height: 50px;
 	font-size: 30px;
 	margin:auto;
-
 } 
 
-.mid-container #btnMergeContainer .error-box{
+.mid-container #btnMergeContainer .error-box {
 	font-style: oblique;
 	color: #ccc;
 	height:48px;
@@ -306,7 +291,7 @@
 	text-align: center;
 }
 
-.content .bot-container{
+.content .bot-container {
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 10px;
@@ -314,27 +299,26 @@
 	background-color: #green;
 }
 
-
-.content #imageMergerFinal{
+.content #imageMergerFinal {
  	width: 480px;
  	height: 480px;
 	margin:auto;
 	background-color:#048;
+	overflow: auto;
 }
-.content #imageMergerFinal canvas{
+
+.content #imageMergerFinal canvas {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     display: block;
-    width: auto;
-
+    width: auto; 
 }
 
-.bot-container #imageMergerFinal .downloadBtn{
+.bot-container #imageMergerFinal .downloadBtn {
 	position: absolute;
 	top: 130%;
 	left: calc(49%);
 } 
-
