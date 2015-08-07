@@ -4,7 +4,7 @@ function MergeButton(container) {
 	var that = this;
 	var btnMerge = document.createElement("button");
 	btnMerge.type = "button";		
-	btnMerge.className = "merge-button";
+	btnMerge.className = "merge-button fill";
 	btnMerge.innerText = "Merge";
 	container.appendChild(btnMerge);
  	btnMerge.disabled = true;

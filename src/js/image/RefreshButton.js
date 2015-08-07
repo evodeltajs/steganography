@@ -2,13 +2,13 @@
 
 function RefreshButton(container) {
 
-	var btnRefresh = document.createElement("button");
-	btnRefresh.type = "button";
-	btnRefresh.className = "refresh-button";
-	btnRefresh.innerText = "Refresh";
+	var btnRefresh = document.createElement("a");
+	// btnRefresh.type = "button";
+	// btnRefresh.className = "refresh-button"; 
+
 	document.getElementById(container.id).appendChild(btnRefresh);
 
-	btnRefresh.addEventListener("click",function() {
+	container.addEventListener("click",function() {
  		location.reload();
 	});
 }
