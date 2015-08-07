@@ -1,59 +1,71 @@
 body {
-    /*background-image: url(http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg);*/
+    background-image: url(http://wallrere.com/wp-content/uploads/2015/05/white-background-wallpaper-2956247.jpg);
 }
 
 .nav-bar {
 	background-color: #a94444;
 	width: auto;
 	text-align: center;
-	height: 100px;
+	height: 65px;
 	position: relative;
  
-    margin: 80px;
-    margin-top: 36px;
     margin-bottom: 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 .nav-bar #refreshBtn {
 	float:left;
-	width:122px;
-	height: 60px;
-	margin-top: 36px;
+	width:140px;
+	height: 70px;
+	margin-top: 15px;
 	margin-left: 20px;	
+
 }
 
 .nav-bar #refreshBtn .refresh-button {
 	font-size: 30px;
+	border:none;
+	background: none;
+	padding: 0;
+	color:white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .nav-bar #title {
 	display:inline-block;
-	width: 250px;
+	width: 500px;
 	margin: 0 auto;
-	height: 60px;
-	margin-top: 36px;
-	font-size:200%;
+	height: 100px;
+	/*margin-top: 25px;*/
+	font-size:50px;
 	color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .nav-bar #unmerge {
 	width:140px;
 	height: 60px;
 	float:right;
-	margin-top: 36px;
+	margin-top: 15px;
 	margin-right: 20px;	
 }
 
 .nav-bar #unmerge #unmergebtn {
 	font-size: 30px;
+	border:none;
+	background: none;
+	padding: 0;
+	color:white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .content {
-	width: 1024px;
+	width: 1090px;
 	height: 1100px;
 	background-color: #a94444; 
 	margin:auto;
+	border-radius: 10px;
 }
 
 .content .top-container {
@@ -66,15 +78,22 @@ body {
 /*FIRST IMAGE*/
 .top-container #FirstImage {
 	position: absolute;
+	margin-top: 32px;
 	right:51.2%;
 	width: 480px;
 	height: 480px;
-	background-color: lightgrey;
+
+
 }
 
 .top-container #FirstImage .image-upload-first {
 	height:432px;
+	background-color: lightgrey;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius:  15px;
+
 }
+
 
 .top-container #FirstImage .error-box {
 	height:48px;
@@ -93,6 +112,8 @@ body {
  	width: 240px;
  	height: 48px; 
 	float: left;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+
 }
 
 .top-container #FirstImage .image-upload-first .button-container .url-btn {
@@ -100,6 +121,7 @@ body {
  	width: 240px;
  	height: 48px; 
  	float: right;
+ 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 
@@ -161,15 +183,16 @@ body {
     overflow: hidden;
     display: block;
     width: auto;
-    padding-top: 90px;
+    padding-top: 60px;
     /*height: 384px;*/
 
 }
 
 .top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn {
 	position: absolute;
-	top: 50%;
-	left: calc(40%);
+	top: 46%;
+	left: calc(32%);
+	font-size: 30px;
 }
 
 /*SECOND IMAGE*/
@@ -178,12 +201,18 @@ body {
 	left:51.2%;
 	width: 480px;
 	height: 480px;
+	margin-top: 32px;
 	/*float:right;*/
-	background-color: lightgrey;
+ 
+ 
 }
 
 .top-container #SecondImage .image-upload-second {
 	height:432px;
+	background-color: lightgrey;		
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius:  15px;
+
 }
 
 .top-container #SecondImage .error-box {
@@ -203,6 +232,7 @@ body {
  	width: 240px;
  	height: 48px; 
 	float: left;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .top-container #SecondImage .image-upload-second .button-container .url-btn {
@@ -210,6 +240,7 @@ body {
  	width: 240px;
  	height: 48px; 
  	float: right;
+ 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .top-container #SecondImage .image-upload-second .image-container {
@@ -269,13 +300,14 @@ body {
     overflow: hidden;
     display: block;
     width: auto;
-    padding-top: 90px;
+    padding-top: 60px;
 }
 
 .top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn {
 	position: absolute;
-	top: 50%;
-	left: calc(40%);
+	top: 46%;
+	left: calc(32%);
+	font-size: 30px;
 }
 
 /*Merge Button*/
@@ -287,7 +319,8 @@ body {
 	margin-right: 100px;
 	margin-left: 100px;*/
 	/*background-color: #135;*/
-	height:98px;
+	height:100px;
+	width: 1090px;
 }
 
 .mid-container #btnMergeContainer {
@@ -301,15 +334,18 @@ body {
 	width:120px;
 	height: 50px;
 	font-size: 30px;
+	border-radius: 10px;
 	margin:auto;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+
 } 
 
 .mid-container #btnMergeContainer .error-box {
 	font-style: oblique;
 	color: #ccc;
 	height:48px;
-	width: 200px;
-	margin-left:-34%;
+	width: 250px;
+	margin-left:-55%;
 	font-size:30px;
 	color:white;
 	text-align: center;
@@ -320,8 +356,9 @@ body {
 	/*overflow: auto;*/
 	position: absolute;
 	height: auto;
-	width: 1024px;
+	width: 1090px;
 	padding-top: 1%;
+ 	margin-top: -10px;
 	
 }
 
@@ -331,8 +368,10 @@ body {
  	width: 480px;
  	height: 480px;
 	margin:auto;
-	/*background-color:#048;*/
-	overflow: auto;
+	background-color: lightgrey;
+	overflow: auto; 
+	border-radius: 15px;
+	
 }
 
 .content #imageMergerFinal canvas {
@@ -343,16 +382,17 @@ body {
     overflow: auto;
     display: block;
     width: auto; 
-    padding-top: 90px;
+    padding-top: 110px;
     
 }
 
 .bot-container #imageMergerFinal .download-btn{
 	position: absolute;
-	top: 44%;
-	left: calc(46%);
+	top: 48%;
+	left: calc(43%);
 } 
 .download-btn {
+	font-size: 30px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;

@@ -25,7 +25,7 @@ function MergeButton(container) {
 		 	that.onErrorMessageReceived("OK");
 		 	return true;
 		} else { 
-			that.onErrorMessageReceived("Not same sizes");
+			that.onErrorMessageReceived("Not the same sizes.");
 			return false;
 		}
 	};
