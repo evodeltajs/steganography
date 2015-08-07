@@ -65,17 +65,16 @@
 
 /*FIRST IMAGE*/
 .top-container #FirstImage {
+	position: absolute;
+	right:51.2%;
 	width: 480px;
 	height: 480px;
-	float:left;
 	background-color: #046;
 
 }
 
 .top-container #FirstImage .image-upload-first{
 	height:432px;
-
-
 }
 .top-container #FirstImage .error-box{
 	height:48px;
@@ -84,9 +83,7 @@
 	font-size:30px;
 	color:red;
 	text-align: center;
-  
 }
-
 .top-container #FirstImage .image-upload-first .button-container {
  	height: 48px;
 }
@@ -113,7 +110,6 @@
 .top-container #FirstImage .image-upload-first .image-container .first-upload{
 	width:175px;
 	height: 20px;
- 
  	margin-left: auto;
  	margin-right: auto;
  	
@@ -157,22 +153,32 @@
 }
 
 .top-container #FirstImage .image-upload-first .image-container .viewer canvas {
-  	display: block;
-    margin: 0 auto;
- 
+
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: block;
+    width: auto;
+    padding-top: 90px;
+    /*height: 384px;*/
+
 }
 
 .top-container #FirstImage .image-upload-first .image-container .viewer .uploadBtn{
 	position: absolute;
-	top: 45%;
-	left: calc(34%);
+	top: 50%;
+	left: calc(40%);
 }
 
 /*SECOND IMAGE*/
 .top-container #SecondImage{
+	position: absolute;
+	left:51.2%;
 	width: 480px;
 	height: 480px;
-	float:right;
+	/*float:right;*/
 	background-color: #046
 }
 
@@ -192,7 +198,6 @@
 .top-container #SecondImage .image-upload-second .button-container {
  	height: 48px;
 }
-
 .top-container #SecondImage .image-upload-second .button-container .image-btn{
  	font-size: 30px;
  	width: 240px;
@@ -216,7 +221,6 @@
 .top-container #SecondImage .image-upload-second .image-container .second-upload{
 	width:175px;
 	height: 20px;
- 
  	margin-left: auto;
  	margin-right: auto;
  	
@@ -239,7 +243,6 @@
 }
  .top-container #SecondImage .image-upload-second .image-container input{
  	width: 248px;
-
  	margin-top: 170px;
  	font-size: 25px;
 }
@@ -260,24 +263,33 @@
 }
 
 .top-container #SecondImage .image-upload-second .image-container .viewer canvas {
-  	display: block;
-    margin: 0 auto;
- 
+  	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: block;
+    width: auto;
+    padding-top: 90px;
 }
 
 .top-container #SecondImage .image-upload-second .image-container .viewer .uploadBtn{
 	position: absolute;
-	top: 45%;
-	left: calc(61%);
+	top: 50%;
+	left: calc(40%);
 }
 
-/*MergeContainer*/
+/*Merge Button*/
 
 .mid-container{
-	height:98px;
+	/*position: absolute;
+	width: auto;
+	
+	left:41.5%;
 	margin-right: 100px;
-	margin-left: 100px;
-	background-color: #135
+	margin-left: 100px;*/
+	background-color: #135;
+	height:98px;
 }
 
 .mid-container #btnMergeContainer{
@@ -306,16 +318,20 @@
 	text-align: center;
 }
 
+/*MergeContainer*/
 .content .bot-container{
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	height: 490px;
-	background-color: #green;
+	/*overflow: auto;*/
+	position: absolute;
+	height: auto;
+	width: 1024px;
+	padding-top: 1%;
+	
 }
 
 
 .content #imageMergerFinal{
+ 	/*position: absolute;*/
+ 	overflow: auto;
  	width: 480px;
  	height: 480px;
 	margin:auto;
@@ -326,15 +342,16 @@
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    overflow: auto;
     display: block;
     width: auto;
-
+    padding-top: 90px;
+    
 }
 
 .bot-container #imageMergerFinal .downloadBtn{
 	position: absolute;
-	top: 130%;
-	left: calc(49%);
+	top: 44%;
+	left: calc(47%);
 } 
 
