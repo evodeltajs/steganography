@@ -18,7 +18,7 @@ var imageDataFirst, imageDataSecond;
 var imagesLoaded = 0;
 var imageLoadedFirst = 0;
 var imageLoadedSecond = 0;
-var btnMergeOn = true;
+var btnMergeOn = false;
 var imageUploadFirst, imageUploadSecond;
 var sizesFirst, sizesSecond ;
 var errMsgFirst, errMsgSecond ,errMsgMerge;
@@ -134,6 +134,7 @@ var flagFirst = false;
 			imagesLoaded = imageLoadedFirst + imageLoadedSecond;
 			if (imagesLoaded === 2) {
 				mergeBtn.activate();
+				btnMergeOn = true;
 				imagesLoaded = 0;	
 			} else {
 			 	// console.log ("You need to input two files!");
@@ -150,8 +151,8 @@ var flagFirst = false;
 						var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
 						initMergeView(rezImg);			
 
-						btnMergeOn = false;	
-						mergeBtn.deactivate();	
+						btnMergeOn = true;	
+						// mergeBtn.deactivate();	
 					} else {
 						imagesLoaded = 0;
 					}			 
@@ -168,13 +169,19 @@ var flagFirst = false;
 	}
 
 	function initMergeView(mergedImageData) {
-	   
+	   	
 		var imageContainerMerge = document.getElementById("imageMergerFinal");
+		cleanMergedView(imageContainerMerge);
 		inputMergeView = new ImageViewer(imageContainerMerge,sizesFirst); 
 		inputMergeView.setFinal(mergedImageData);
 
 		var canvasMerged = inputMergeView.getCanvas();
 		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged); 
 	}
+	function cleanMergedView(container) {
+        while(container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    }
 }
 module.exports = MergeController;
