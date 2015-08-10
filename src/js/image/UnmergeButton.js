@@ -4,8 +4,9 @@ function UnmergeButton(container) {
 	var that = this;
 	var btnUnmerge = document.createElement("button");
 	btnUnmerge.type = "button";		
-	btnUnmerge.className = "unmerge-button";
+	btnUnmerge.className = "unmerge-button fill";
 	btnUnmerge.innerText = "Unmerge";
+	btnUnmerge.textContent = "Unmerge";
 	container.appendChild(btnUnmerge);
  	btnUnmerge.disabled = true;
 

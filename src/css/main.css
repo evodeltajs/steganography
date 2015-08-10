@@ -8,7 +8,7 @@ body {
 	text-align: center;
 	height: 70px;
 	position: relative;
- 
+ 	margin-top: 10px;
     margin-bottom: 20px;
     text-align: center;
     border-radius: 10px;
@@ -66,7 +66,7 @@ body {
 
 .content {
 	width: 1090px;
-	height: 1100px;
+	height: 1105px;
 	background-color: #a94444; 
 	margin:auto;
 	border-radius: 30px;
@@ -346,7 +346,7 @@ body {
 .mid-container #btnMergeContainer {
 	/*background-color: #148;*/
 	height: 50px;
-	width: 120px;
+	width: 130px;
  	margin: auto;
 }
 
@@ -361,14 +361,16 @@ body {
 } 
 
 .mid-container #btnMergeContainer .error-box {
-	font-style: oblique;
+ 
 	color: #ccc;
 	height:48px;
-	width: 250px;
+	width: 290px;
+	padding-top: 5px;
 	margin-left:-55%;
 	font-size:30px;
 	color:white;
 	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 /*MergeContainer*/
@@ -378,6 +380,7 @@ body {
 	height: auto;
 	width: 1090px;
 	padding-top: 1%;
+
  	margin-top: -10px;
 	
 }

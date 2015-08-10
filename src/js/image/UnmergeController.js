@@ -17,7 +17,7 @@ function UnmergeController() {
 	var imageDataSingle;
 	var sizesSingle;
 	var imageTimesLoaded = 0 ;
-	var btnUnmergeOn = true;
+	var btnUnmergeOn = false;
 	var unmergeButton;
 
 	init();
@@ -79,6 +79,7 @@ function UnmergeController() {
 		 
 			if (imageTimesLoaded === 1) {
 				unmergeButton.activate();
+				btnUnmergeOn = true;
 				imageTimesLoaded = 0;	
 			} else {
 			 	// console.log ("You need to input two files!");
@@ -93,8 +94,8 @@ function UnmergeController() {
 		container.addEventListener("click", function() {
 			if (btnUnmergeOn) {		 
 					initImageUnmerger(imageDataSingle, sizesSingle);
-					btnUnmergeOn = false;	
-					unmergeButton.deactivate();	
+					btnUnmergeOn = true;	
+					// unmergeButton.deactivate();	
 			} else {
 				imageTimesLoaded = 0;
 			}			 							
@@ -115,6 +116,9 @@ function UnmergeController() {
 		var imageContainerUnmergeFirst = document.getElementById("imageUnmergeFirst");
 		var imageContainerUnmergeSecond = document.getElementById("imageUnmergeSecond");
 
+		cleanUnmergedView(imageContainerUnmergeFirst);
+		cleanUnmergedView(imageContainerUnmergeSecond);
+
 		outputUnmergeViewFirst = new ImageViewer(imageContainerUnmergeFirst, sizesFirst);
 		outputUnmergeViewSecond= new ImageViewer(imageContainerUnmergeSecond, sizesFirst);
 
@@ -128,6 +132,11 @@ function UnmergeController() {
 		var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id, canvasUnmergedSecond);
 	
 	}
+	function cleanUnmergedView(container) {
+        while(container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    }
 }
 
 module.exports = UnmergeController;
