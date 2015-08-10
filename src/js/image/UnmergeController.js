@@ -20,6 +20,12 @@ function UnmergeController() {
 	var btnUnmergeOn = false;
 	var unmergeButton;
 
+	var imageContainerUnmergeFirst = document.getElementById("imageUnmergeFirst");
+	var imageContainerUnmergeSecond = document.getElementById("imageUnmergeSecond");
+
+ 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id);
+	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id);
+
 	init();
 
 	function init() {
@@ -94,7 +100,7 @@ function UnmergeController() {
 		container.addEventListener("click", function() {
 			if (btnUnmergeOn) {		 
 					initImageUnmerger(imageDataSingle, sizesSingle);
-					btnUnmergeOn = true;	
+					// btnUnmergeOn = true;	
 					// unmergeButton.deactivate();	
 			} else {
 				imageTimesLoaded = 0;
@@ -113,8 +119,6 @@ function UnmergeController() {
 	function initUnmergeView(unmergedArray, sizesFirst) {
 		// console.log(unmergedArray);
 
-		var imageContainerUnmergeFirst = document.getElementById("imageUnmergeFirst");
-		var imageContainerUnmergeSecond = document.getElementById("imageUnmergeSecond");
 
 		cleanUnmergedView(imageContainerUnmergeFirst);
 		cleanUnmergedView(imageContainerUnmergeSecond);
@@ -127,16 +131,34 @@ function UnmergeController() {
 
 		var canvasUnmergedFirst = outputUnmergeViewFirst.getCanvas();
 		var canvasUnmergedSecond = outputUnmergeViewSecond.getCanvas();
-		 
-	 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id, canvasUnmergedFirst);
-		var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id, canvasUnmergedSecond);
+ 	
+ 		btnDownFirst.setCanvas(canvasUnmergedFirst);
+ 		btnDownSecond.setCanvas(canvasUnmergedSecond);
+
+
 	
 	}
-	function cleanUnmergedView(container) {
-        while(container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-    }
+	// function cleanUnmergedView(container) {
+ //        while(container.firstChild) {
+
+ //        	if (container.children.length === 1 && container.firstChild.tagName !== "CANVAS")
+
+ //        	if(container.firstChild.tagName === "CANVAS"){            	
+ //            	container.removeChild(container.firstChild);
+ //        	}
+ //        }
+ //    }
+
+ 		function cleanUnmergedView(container){
+ 			var childNodes = container.childNodes;
+ 			var i;
+ 			for(i=0 ; i< childNodes.length; i++){
+ 				if(childNodes[i].tagName ==="CANVAS"){
+ 					container.removeChild(container.childNodes[i]);
+ 				}
+ 			}
+
+ 		}
 }
 
 module.exports = UnmergeController;

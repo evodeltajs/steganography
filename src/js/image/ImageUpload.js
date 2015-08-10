@@ -169,7 +169,7 @@ function ImageUpload(container, className) {
         divViewer.addEventListener("mouseenter", function() {            
             newUploadBtn = document.createElement("button");
             newUploadBtn.className = "uploadBtn fill";
-            newUploadBtn.innerHTML = "New Upload";
+            newUploadBtn.innerHTML = "New";
             divViewer.appendChild(newUploadBtn);
 
             newUploadBtn.addEventListener("click", function() {

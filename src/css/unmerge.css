@@ -86,7 +86,7 @@ body {
 /*ImageUpload*/
 .content .top-container{
 
-	padding-top: 32px;
+	margin-top: 32px;
 	position: absolute;
 	width:1090px;
 	height: 490px;
@@ -149,7 +149,7 @@ body {
 
 .content .top-container #SingleImageContainer .image-upload .image-container .single input{
 	
-	padding-left: 32%;
+	margin-left: 34%;
 	width: 170px;
 }
 
@@ -176,7 +176,7 @@ body {
 
 .content .top-container #SingleImageContainer .image-upload .image-container .viewer {
 	width: 480px;
-	height: 432px;
+	height: 384px;
     margin-left: auto;
     margin-right: auto;
     
@@ -190,10 +190,10 @@ body {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    
+    padding-top: 60px;
     display: block;
     width: auto;
-    padding-top: 60px;
+     
 }
 
 .content .top-container #SingleImageContainer .image-upload .image-container .viewer .uploadBtn {
@@ -234,7 +234,8 @@ body {
 	height: 500px;
 }
 
-.content .bot-container #imageUnmergeFirst {
+.content   #imageUnmergeFirst {
+	position: relative;
 	width:480px;
 	height:480px;
 	float:left;
@@ -249,16 +250,18 @@ body {
 .content .bot-container #imageUnmergeFirst canvas {
     padding-left: 0;
     padding-right: 0;
+    margin-top: 130px;
     margin-left: auto;
     margin-right: auto;
     overflow: auto;
     display: block;
     width: auto; 
-    padding-top: 110px;
+   	
 	
 }
 
 .content  #imageUnmergeSecond {
+	position: relative;
 	width:480px;
 	height:480px;
 	float:right;
@@ -271,29 +274,33 @@ body {
 	margin-right: 12px;
 }
 
-.content .bot-container #imageUnmergeSecond canvas {
+.content  .bot-container #imageUnmergeSecond canvas {
     padding-left: 0;
     padding-right: 0;
+    margin-top: 130px;
     margin-left: auto;
     margin-right: auto;
     overflow: auto;
     display: block;
     width: auto; 
-    padding-top: 110px;
+
+  
 }
 
 .bot-container #imageUnmergeFirst .download-btn {
-	position: absolute;
-  
-	top: 94%;
-	left: calc(33%); 
-
+    position: absolute;  
+    z-index: 100;
+    
+	left: calc(34%);
+ 	top:52%; 
 } 
 
 .bot-container #imageUnmergeSecond .download-btn {
 	position: absolute;
-	top: 94%;
-	left: calc(61%);
+	z-index: 100;
+
+	right: calc(34%);
+	top:52%;
 } 
 
 

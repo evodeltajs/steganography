@@ -75,7 +75,8 @@ var flagFirst = false;
 			if(imageLoadedFirst === 1) {
 				imageDataFirst = imageData;
 				onImagesLoaded();
-			} else if(imageLoadedFirst ===2) {
+			} 
+			else if(imageLoadedFirst ===2) {
 				imageDataFirst = imageData;
 				imageLoadedFirst = 1;
 			}
@@ -101,7 +102,8 @@ var flagFirst = false;
 			if(imageLoadedSecond === 1) {
 				imageDataSecond = imageData;
 				onImagesLoaded();				
-			} else if(imageLoadedSecond === 2) {
+			}
+			else if(imageLoadedSecond === 2) {
 				imageDataSecond = imageData;
 				imageLoadedSecond = 1;
 			}
@@ -151,7 +153,7 @@ var flagFirst = false;
 						var rezImg = initImageMerger(imageDataFirst,imageDataSecond, sizesFirst, sizesSecond);
 						initMergeView(rezImg);			
 
-						btnMergeOn = true;	
+						 	
 						// mergeBtn.deactivate();	
 					} else {
 						imagesLoaded = 0;
@@ -172,11 +174,16 @@ var flagFirst = false;
 	   	
 		var imageContainerMerge = document.getElementById("imageMergerFinal");
 		cleanMergedView(imageContainerMerge);
+
+
 		inputMergeView = new ImageViewer(imageContainerMerge,sizesFirst); 
 		inputMergeView.setFinal(mergedImageData);
 
 		var canvasMerged = inputMergeView.getCanvas();
-		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged); 
+		
+
+		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged);
+
 	}
 	function cleanMergedView(container) {
         while(container.firstChild) {
