@@ -6,6 +6,7 @@ function MergeButton(container) {
 	btnMerge.type = "button";		
 	btnMerge.className = "merge-button fill";
 	btnMerge.innerText = "Merge";
+	btnMerge.textContent = "Merge";
 	container.appendChild(btnMerge);
  	btnMerge.disabled = true;
 

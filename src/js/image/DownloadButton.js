@@ -9,6 +9,7 @@ function DownloadButton(id,canvas) {
     	
     	downloadBtn.className = "download-btn";
     	downloadBtn.innerHTML = "Download";
+        downloadBtn.textContent = "Download";
     	container.appendChild(downloadBtn);
 
     });
