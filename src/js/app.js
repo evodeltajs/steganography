@@ -6,17 +6,19 @@ var UnmergeController = require("./image/UnmergeController");
 var pathname = window.location.pathname;
 
 window.addEventListener("load", init, false);
- 
+
+
 function init() {
-	if(pathname === "/") { 
+	
+	var appId = document.getElementsByTagName("html")[0].getAttribute("app-id");
+	
+	if(appId === "merge") { 
 		startMergeController();
 	}
-	else if(pathname === "/index.html") {
-		startMergeController();
-	}
-	else if(pathname === "/unmerge.html") {
+	else if(appId === "unmerge") {
 		startUnmergeController();
 	}
+	 
 }
 
 function startMergeController() {
