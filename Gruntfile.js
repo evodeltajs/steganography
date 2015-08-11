@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     });
 
 	grunt.loadNpmTasks("grunt-browserify");
+	grunt.loadNpmTasks("assemble-less");
 
-	grunt.registerTask("default", ["jshint", "browserify:vendor", "browserify:client", "copy", "connect", "watch"]);
+	grunt.registerTask("default", ["jshint", "less", "browserify:vendor", "browserify:client", "copy", "connect", "watch"]);
 };

@@ -6,6 +6,14 @@ module.exports = {
 			spawn: false
 		}
 	},
+	
+	less: {
+		files: "src/less/**/*.less",
+		tasks: ["less"],
+		options: {
+			spawn: false
+		}
+	},
 
 	htmlCss: {
 		files: [
