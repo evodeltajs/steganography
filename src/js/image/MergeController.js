@@ -23,6 +23,8 @@ var imageUploadFirst, imageUploadSecond;
 var sizesFirst, sizesSecond ;
 var errMsgFirst, errMsgSecond ,errMsgMerge;
 var flagFirst = false;
+var imageContainerMerge = document.getElementById("imageMergerFinal");
+var btnDown = new DownloadButton( imageContainerMerge.id);
 
 	init();
 
@@ -172,7 +174,7 @@ var flagFirst = false;
 
 	function initMergeView(mergedImageData) {
 	   	
-		var imageContainerMerge = document.getElementById("imageMergerFinal");
+		
 		cleanMergedView(imageContainerMerge);
 
 
@@ -181,14 +183,18 @@ var flagFirst = false;
 
 		var canvasMerged = inputMergeView.getCanvas();
 		
-
-		var btnDown = new DownloadButton( imageContainerMerge.id, canvasMerged);
+		btnDown.setCanvas(canvasMerged);
+		
 
 	}
 	function cleanMergedView(container) {
-        while(container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
+     	var childNodes = container.childNodes;
+ 			var i;
+ 			for(i=0 ; i< childNodes.length; i++){
+ 				if(childNodes[i].tagName ==="CANVAS"){
+ 					container.removeChild(container.childNodes[i]);
+ 				}
+ 			}
     }
 }
 module.exports = MergeController;
