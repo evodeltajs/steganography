@@ -55,8 +55,6 @@ function UnmergeController() {
 		var ErrorBoxSingleImage = new ErrorBox(imageUploadContainerSingle);
 		ErrorBoxSingleImage.init();
 
-		// var unmergeButton = document.createElement("button");	
-
 		imageUploadSingle.onImageUpload = function(imageData) {		 
 			imageTimesLoaded += 1;
 
@@ -74,7 +72,6 @@ function UnmergeController() {
 		}; 
 
 		imageUploadSingle.onErrorMessageReceived = function(message) {
-
 			if(message ==="OK") {
 				ErrorBoxSingleImage.clear();
 			} else {		 	 
@@ -84,26 +81,20 @@ function UnmergeController() {
 	}
 
 	function onImagesLoaded() {
-		 
 			if (imageTimesLoaded === 1) {
 				unmergeButton.activate();
 				btnUnmergeOn = true;
 				imageTimesLoaded = 0;	
 			} else {
-			 	// console.log ("You need to input two files!");
 			} 
 	}
 
- 
-	function initUnmergeButton(container) {
-		
+	function initUnmergeButton(container) {		
 		unmergeButton = new UnmergeButton(container);
 
 		container.addEventListener("click", function() {
 			if (btnUnmergeOn) {		 
-					initImageUnmerger(imageDataSingle, sizesSingle);
-					// btnUnmergeOn = true;	
-					// unmergeButton.deactivate();	
+					initImageUnmerger(imageDataSingle, sizesSingle);	
 			} else {
 				imageTimesLoaded = 0;
 			}			 							
@@ -111,17 +102,12 @@ function UnmergeController() {
  	}
  
 	function initImageUnmerger(imageDataSingle, sizes) {
-
 		var imageUnmerger = new ImageUnmerger(imageDataSingle, sizes);
 		var unmergedArray = imageUnmerger.unmerge();
 		initUnmergeView(unmergedArray, sizes);
-	
 	}
 
 	function initUnmergeView(unmergedArray, sizesFirst) {
-		// console.log(unmergedArray);
-
-
 		cleanUnmergedView(imageContainerUnmergeFirst);
 		cleanUnmergedView(imageContainerUnmergeSecond);
 
@@ -136,31 +122,17 @@ function UnmergeController() {
  	
  		btnDownFirst.setCanvas(canvasUnmergedFirst);
  		btnDownSecond.setCanvas(canvasUnmergedSecond);
-
-
-	
 	}
-	// function cleanUnmergedView(container) {
- //        while(container.firstChild) {
 
- //        	if (container.children.length === 1 && container.firstChild.tagName !== "CANVAS")
-
- //        	if(container.firstChild.tagName === "CANVAS"){            	
- //            	container.removeChild(container.firstChild);
- //        	}
- //        }
- //    }
-
- 		function cleanUnmergedView(container){
- 			var childNodes = container.childNodes;
- 			var i;
- 			for(i=0 ; i< childNodes.length; i++){
- 				if(childNodes[i].tagName ==="CANVAS"){
- 					container.removeChild(container.childNodes[i]);
- 				}
- 			}
-
- 		}
+	function cleanUnmergedView(container) {
+		var childNodes = container.childNodes;
+		var i;
+		for(i = 0; i < childNodes.length; i++) {
+			if(childNodes[i].tagName === "CANVAS") {
+				container.removeChild(container.childNodes[i]);
+			}
+		}
+	}
 }
 
 module.exports = UnmergeController;

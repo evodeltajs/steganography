@@ -13,6 +13,7 @@ function UrlReader(container, urlLink) {
 
         var reader, canvas, ctx;
     	var urlField = document.createElement("input");
+        urlField.placeholder = "Paste an url...";
         var urlBtn = document.createElement("button");
         urlBtn.innerHTML = "Upload";
         urlBtn.contentText = "Upload";
@@ -24,13 +25,10 @@ function UrlReader(container, urlLink) {
         urlBtn.addEventListener("click", function() {
             
             if(urlField.value !== "") {
-
 	            var url = urlField.value;
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
-
                     if(xhr.readyState === 4) {
-
                         if(xhr.status === 200) {
                          
                             canvas = document.createElement("canvas");  
@@ -50,7 +48,6 @@ function UrlReader(container, urlLink) {
                                 that.onImageReceived(imageData); 
                                 var sizes = new ImageSize(canvas.width, canvas.height);
                                 that.onSizeRecieved(sizes);        
-                                
                             };
 
                             img.crossOrigin = "Anonymous";  
@@ -59,12 +56,10 @@ function UrlReader(container, urlLink) {
                             handleError();
                         }
                     }
-
                 };
 
                 xhr.open("GET", url, true);
                 xhr.send();
-
             } else {
 				alert("Input a link");
 			}

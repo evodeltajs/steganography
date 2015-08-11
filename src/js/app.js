@@ -8,8 +8,7 @@ var pathname = window.location.pathname;
 window.addEventListener("load", init, false);
  
 function init() {
-	
-	if(pathname ==="/"){
+	if(pathname === "/") { 
 		startMergeController();
 	}
 	else if(pathname === "/index.html") {

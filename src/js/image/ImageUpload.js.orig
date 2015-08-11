@@ -160,6 +160,7 @@ function ImageUpload(container, className) {
             newUploadBtn.addEventListener("click", function() {
                 // imageContainer.removeChild(divViewer);
                 that.clean();                      
+<<<<<<< HEAD
                 // imageContainer.appendChild(Reader);
                 if(Reader.className =="url-reader"){
                     that.initURL();
@@ -167,7 +168,10 @@ function ImageUpload(container, className) {
                 if(Reader.className ==className){
                     that.initIMG();
                 }
-                 
+                
+=======
+                imageContainer.appendChild(Reader);
+>>>>>>> Indented
             });
         });
 

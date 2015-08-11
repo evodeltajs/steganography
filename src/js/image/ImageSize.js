@@ -1,7 +1,6 @@
 "use strict";
 
 function ImageSize(width, height) {
-
 	this.width = width;
 	this.height = height;
 

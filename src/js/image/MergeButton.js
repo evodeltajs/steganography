@@ -20,9 +20,8 @@ function MergeButton(container) {
 		btnMerge.disabled = true;
 	};
 
-	this.validate = function(size1, size2) {
-		
-		if(size1.width == size2.width && size2.width == size1.width) {
+	this.validate = function(size1, size2) {		
+		if(size1.width === size2.width && size2.width === size1.width) {
 		 	that.onErrorMessageReceived("OK");
 		 	return true;
 		} else { 

@@ -10,7 +10,6 @@ function ImageReader(container) {
     this.onErrorMessageReceived = function() {};
 
     this.init = function() {
-
         var reader, canvas, ctx;
         var inputElement = document.createElement("input");
         inputElement.setAttribute("type", "file");
@@ -18,7 +17,6 @@ function ImageReader(container) {
         container.appendChild(inputElement);    
 
         function handleFiles(ev) {
-
             var file = inputElement.files[0];
 
             if (file) {
@@ -28,14 +26,12 @@ function ImageReader(container) {
 
                 reader.readAsDataURL(file);
                 reader.onload = function(event) {
-
                     var img = new Image();
                     img.onload = function() {
                         canvas.width = img.width;
                         canvas.height = img.height;
 
                         ctx.drawImage(img,0,0);
-
                         var imageData = ctx.getImageData(0, 0, img.width, img.height);
 
                         if (canvas.width < 1024 && canvas.height < 1024) {
