@@ -54,6 +54,7 @@ function ImageUpload(container, className) {
 
         var inputImageViewer;
         var divViewer;
+        var imageDataThis;
         var divReader =  document.createElement("div");
         divReader.className =  className;
 
@@ -61,7 +62,7 @@ function ImageUpload(container, className) {
         reader.init();
 
         imageContainer.appendChild(divReader);
-         var imageDataThis ;
+         
         reader.onImageReceived = function(imageData) {           
 
             if(flag) {
@@ -137,7 +138,6 @@ function ImageUpload(container, className) {
 
 
                 newUploadButton(divUrlViewer,divURL);
-
                 that.onImageUpload(urlImageDataThis);
                 that.onSizesRecieved(sizes);
             }
@@ -148,7 +148,7 @@ function ImageUpload(container, className) {
 
             if(errorMessage === "OK") {
                 flag = true;    
-                console.log(errorMessage); 
+                // console.log(errorMessage); 
             }
 
             that.onErrorMessageReceived(errorMessage);
@@ -163,7 +163,7 @@ function ImageUpload(container, className) {
         }
     };
 
-    function newUploadButton(divViewer, divReader) {
+    function newUploadButton(divViewer, Reader) {
         var newUploadBtn;
 
         divViewer.addEventListener("mouseenter", function() {            
@@ -175,9 +175,10 @@ function ImageUpload(container, className) {
             newUploadBtn.addEventListener("click", function() {
                 imageContainer.removeChild(divViewer);
                 that.clean();                      
-                imageContainer.appendChild(divReader);
+                imageContainer.appendChild(Reader);
+                 
             });
-
+     
         });
 
         divViewer.addEventListener("mouseleave", function() {

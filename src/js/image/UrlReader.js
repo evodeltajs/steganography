@@ -15,6 +15,7 @@ function UrlReader(container, urlLink) {
     	var urlField = document.createElement("input");
         var urlBtn = document.createElement("button");
         urlBtn.innerHTML = "Upload";
+        urlBtn.contentText = "Upload";
 
     	container.appendChild(urlField);
    		container.appendChild(urlBtn); 

@@ -27,6 +27,8 @@ function UnmergeController() {
 	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id);
 
 	init();
+	btnDownSecond.hide();
+	btnDownFirst.hide();
 
 	function init() {
 

@@ -12,7 +12,7 @@ function DownloadButton(id) {
 
     function mouseEnterDownload() {
         
-        downloadBtn.className = "download-btn";
+        downloadBtn.className = "download-btn fill";
         downloadBtn.innerHTML = "Download";
         downloadBtn.textContent = "Download";
         

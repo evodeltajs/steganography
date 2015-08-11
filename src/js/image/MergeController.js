@@ -23,10 +23,13 @@ var imageUploadFirst, imageUploadSecond;
 var sizesFirst, sizesSecond ;
 var errMsgFirst, errMsgSecond ,errMsgMerge;
 var flagFirst = false;
-var imageContainerMerge = document.getElementById("imageMergerFinal");
-var btnDown = new DownloadButton( imageContainerMerge.id);
 
+var imageContainerMerge = document.getElementById("imageMergerFinal");
+
+var btnDown = new DownloadButton(imageContainerMerge.id);
+	
 	init();
+	btnDown.hide();
 
 	function init() {	
 
