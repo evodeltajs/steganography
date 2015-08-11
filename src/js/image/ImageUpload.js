@@ -173,10 +173,16 @@ function ImageUpload(container, className) {
             divViewer.appendChild(newUploadBtn);
 
             newUploadBtn.addEventListener("click", function() {
-                imageContainer.removeChild(divViewer);
+                // imageContainer.removeChild(divViewer);
                 that.clean();                      
-                imageContainer.appendChild(Reader);
-                 
+                // imageContainer.appendChild(Reader);
+                if(Reader.className =="url-reader"){
+                    that.initURL();
+                }
+                if(Reader.className ==className){
+                    that.initIMG();
+                }
+                
             });
      
         });
