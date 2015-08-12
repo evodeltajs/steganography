@@ -8,7 +8,7 @@ var ImageMerger = require("./ImageMerger");
 var ImageUpload = require("./ImageUpload");
 var MergeButton = require("./MergeButton");
 var RefreshButton = require("./RefreshButton");
-var DownloadButton = require("./DownloadButton");
+var DownloadButton = require("../controls/download-button/DownloadButton");
 var ImageSize = require("./ImageSize");
 var ErrorBox = require("./ErrorBox");
 
