@@ -3,14 +3,14 @@
 var $ = require("jquery");
 
 var ImageReader = require("./ImageReader");
-var ImageViewer = require("./ImageViewer");
-var ImageUnmerger = require("../controls/ImageUnmerger");
-var ImageUpload = require("../controls/image-upload/ImageUpload");
-var RefreshButton = require("../controls/refresh-button/RefreshButton");
-var DownloadButton = require("../controls/download-button/DownloadButton");
-var ImageSize = require("../controls/ImageSize");
-var ErrorBox = require("../controls/error-box/ErrorBox");
-var UnmergeButton = require("../controls/unmerge-button/UnmergeButton");
+var ImageViewer = require("./image-viewer/ImageViewer");
+var ImageUnmerger = require("./ImageUnmerger");
+var ImageUpload = require("./image-upload/ImageUpload");
+var RefreshButton = require("./refresh-button/RefreshButton");
+var DownloadButton = require("./download-button/DownloadButton");
+var ImageSize = require("./ImageSize");
+var ErrorBox = require("./error-box/ErrorBox");
+var UnmergeButton = require("./unmerge-button/UnmergeButton");
 
 function UnmergeController() {
 

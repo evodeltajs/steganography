@@ -1,7 +1,7 @@
 "use strict";
 
-var MergeController = require("./image/MergeController");
-var UnmergeController = require("./image/UnmergeController");
+var MergeController = require("./controls/MergeController");
+var UnmergeController = require("./controls/UnmergeController");
 
 var pathname = window.location.pathname;
 

@@ -1,6 +1,6 @@
 "use strict";
 
-var ImageSize = require("../controls/ImageSize");
+var ImageSize = require("../ImageSize");
 
 function UrlReader(container, urlLink) {
     var that = this;
