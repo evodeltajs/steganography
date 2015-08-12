@@ -1,4 +1,5 @@
 var browserifyExternal = [
+	"jquery"
 ];
 
 module.exports = {

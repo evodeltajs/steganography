@@ -1,5 +1,7 @@
 "use strict";
 
+var $ = require("jquery");
+
 var ImageReader = require("./ImageReader");
 var ImageViewer = require("./ImageViewer");
 var ImageMerger = require("./ImageMerger");
@@ -24,20 +26,20 @@ function MergeController() {
 	var errMsgFirst, errMsgSecond ,errMsgMerge;
 	var flagFirst = false;
 
-	var imageContainerMerge = document.getElementById("imageMergerFinal");
+	var imageContainerMerge = $(".imageMergerFinal")[0];
 
-	var btnDown = new DownloadButton(imageContainerMerge.id);
+	var btnDown = new DownloadButton(imageContainerMerge);
 		
 	init();
 	btnDown.hide();
 
 	function init() {	
-		var FirstImage = document.getElementById("FirstImage");
-		var SecondImage = document.getElementById("SecondImage");
+		var FirstImage = $(".FirstImage")[0];
+		var SecondImage = $(".SecondImage")[0];
 		initImageUpload(FirstImage, SecondImage);
 
-		var idRefresh = document.getElementById("refreshBtn");
-		var refreshBtn = new RefreshButton(idRefresh);
+		var refreshElem = $(".refreshBtn")[0];
+		var refreshBtn = new RefreshButton(refreshElem);
 	}
 
 
@@ -63,7 +65,7 @@ function MergeController() {
 		ErrorBoxFirstImage.init();
 		ErrorBoxSecondImage.init();
 		
-		var btnMergeContainer = document.getElementById("btnMergeContainer");
+		var btnMergeContainer = $(".btnMergeContainer")[0];
 		var mergeBtn = new MergeButton(btnMergeContainer);
 		var ErrorBoxMergeButton = new ErrorBox(btnMergeContainer);
 

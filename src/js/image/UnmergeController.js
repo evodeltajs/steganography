@@ -1,5 +1,7 @@
 "use strict";
 
+var $ = require("jquery");
+
 var ImageReader = require("./ImageReader");
 var ImageViewer = require("./ImageViewer");
 var ImageUnmerger = require("./ImageUnmerger");
@@ -20,11 +22,11 @@ function UnmergeController() {
 	var btnUnmergeOn = false;
 	var unmergeButton;
 
-	var imageContainerUnmergeFirst = document.getElementById("imageUnmergeFirst");
-	var imageContainerUnmergeSecond = document.getElementById("imageUnmergeSecond");
+	var imageContainerUnmergeFirst = $(".imageUnmergeFirst")[0];
+	var imageContainerUnmergeSecond = $(".imageUnmergeSecond")[0];
 
- 	var btnDownFirst = new DownloadButton( imageContainerUnmergeFirst.id);
-	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond.id);
+ 	var btnDownFirst = new DownloadButton(imageContainerUnmergeFirst);
+	var btnDownSecond = new DownloadButton(imageContainerUnmergeSecond);
 
 	init();
 	btnDownSecond.hide();
@@ -32,10 +34,10 @@ function UnmergeController() {
 
 	function init() {
 
-		var SingleImage = document.getElementById("SingleImageContainer");
-		var UnmergeButtonContainer = document.getElementById("btnUnmergeContainer");
-		var idRefresh = document.getElementById("refreshBtn");
-		var refreshBtn = new RefreshButton(idRefresh);
+		var SingleImage = $(".SingleImageContainer")[0];
+		var UnmergeButtonContainer = $(".btnUnmergeContainer")[0];
+		var refreshElem = $(".refreshBtn")[0];
+		var refreshBtn = new RefreshButton(refreshElem);
 
 		initImageUpload(SingleImage);
 	 	initUnmergeButton(UnmergeButtonContainer);

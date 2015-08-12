@@ -1,9 +1,8 @@
 "use strict";
 
-function DownloadButton(id) {
+function DownloadButton(container) {
     this.canvas = null;
     var that = this;
-	var container = document.getElementById(id);	
 	var downloadBtn = document.createElement("a");
     
  	container.addEventListener("mouseenter", mouseEnterDownload, false);
