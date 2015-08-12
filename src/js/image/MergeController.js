@@ -4,13 +4,13 @@ var $ = require("jquery");
 
 var ImageReader = require("./ImageReader");
 var ImageViewer = require("./ImageViewer");
-var ImageMerger = require("./ImageMerger");
-var ImageUpload = require("./ImageUpload");
-var MergeButton = require("./MergeButton");
-var RefreshButton = require("./RefreshButton");
+var ImageMerger = require("../controls/ImageMerger");
+var ImageUpload = require("../controls/image-upload/ImageUpload");
+var MergeButton = require("../controls/merge-button/MergeButton");
+var RefreshButton = require("../controls/refresh-button/RefreshButton");
 var DownloadButton = require("../controls/download-button/DownloadButton");
-var ImageSize = require("./ImageSize");
-var ErrorBox = require("./ErrorBox");
+var ImageSize = require("../controls/ImageSize");
+var ErrorBox = require("../controls/error-box/ErrorBox");
 
 function MergeController() {
 

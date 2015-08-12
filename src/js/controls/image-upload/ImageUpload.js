@@ -1,8 +1,8 @@
 "use strict";
 
-var ImageReader = require("./ImageReader");
-var ImageViewer = require("./ImageViewer");
-var UrlReader = require("./UrlReader");
+var ImageReader = require("../../image/ImageReader");
+var ImageViewer = require("../../image/ImageViewer");
+var UrlReader = require("../../image/UrlReader");
 
 function ImageUpload(container, className) {
     var that = this;

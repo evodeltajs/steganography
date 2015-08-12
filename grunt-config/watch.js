@@ -8,7 +8,9 @@ module.exports = {
 	},
 	
 	less: {
-		files: "src/less/**/*.less",
+		files: ["src/less/**/*.less",
+				"src/js/controls/**/*.less"
+				],
 		tasks: ["less"],
 		options: {
 			spawn: false
