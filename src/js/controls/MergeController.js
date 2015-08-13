@@ -47,11 +47,11 @@ function MergeController() {
 		var imageUploadContainerFirst = document.createElement("div");
 		var imageUploadContainerSecond = document.createElement("div");
 
-		imageUploadContainerFirst.className = "image-upload-first";
-		imageUploadContainerSecond.className = "image-upload-second";
+		imageUploadContainerFirst.className = "image-upload";
+		imageUploadContainerSecond.className = "image-upload";
 
-		imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "first-upload" ); 
-		imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "second-upload");
+		imageUploadFirst = new ImageUpload(imageUploadContainerFirst, "upload" ); 
+		imageUploadSecond  = new ImageUpload(imageUploadContainerSecond, "upload");
 
 		firstImageContainer.appendChild(imageUploadContainerFirst);
 		secondImageContainer.appendChild(imageUploadContainerSecond);
